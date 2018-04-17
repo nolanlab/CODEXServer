@@ -2,12 +2,11 @@ package org.nolanlab.CODEX.utils.codexhelper;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonReader;
 import org.nolanlab.CODEX.segm.segmclient.SegConfigParam;
+import org.nolanlab.CODEX.uploader.uplclient.Experiment;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Modifier;
 
 public class SegmHelper {
@@ -26,5 +25,12 @@ public class SegmHelper {
                 .create();
         String js = gson.toJson(segConfigParam).replaceAll(",", ",\n");
         return js;
+    }
+
+    public SegConfigParam loadFromJSON(File f) throws FileNotFoundException {
+        Gson gson = new Gson();
+        JsonReader reader = new JsonReader(new FileReader(f));
+        SegConfigParam segConfigParam = gson.fromJson(reader, SegConfigParam.class);
+        return segConfigParam;
     }
 }

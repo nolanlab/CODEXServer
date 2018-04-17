@@ -9,12 +9,10 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import net.sf.flowcyt.gp.module.csv2fcs.CSV2FCSApp;
 import org.nolanlab.CODEX.segm.segmclient.SegConfigParam;
+import org.nolanlab.CODEX.utils.codexhelper.SegmHelper;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Properties;
+import java.util.*;
 
 /**
  *
@@ -22,13 +20,17 @@ import java.util.Properties;
  */
 public class MakeFCS {
 
+    private static File dir;
+    private static File fcsDir;
+    private static File compDir;
+    private static File uncompDir;
+
     public static void callMakeFcs(SegConfigParam segParam, String ts) throws Exception {
 
-        //args = new String[]{"I:\\Nikolay\\41-parameter 16 cycles melanoma Nikolay 4-18-17"};
-        
-        //File dir = new File(args[0]);
-        //File config = new File(dir.getPath() + File.separator + "config.txt");
-        File dir = new File(segParam.getRootDir() + File.separator + "segm" + File.separator + "segm_" + ts);
+        dir = new File(segParam.getRootDir() + File.separator + "segm" + File.separator + "segm_" + ts);
+        fcsDir = new File(dir + File.separator + "FCS");
+        compDir = new File(fcsDir + File.separator + "compensated");
+        uncompDir = new File(fcsDir + File.separator + "uncompensated");
 
         if(!dir.exists()) {
             throw new IllegalStateException("Directory does not exist: " + dir.getPath());
@@ -36,24 +38,18 @@ public class MakeFCS {
 
         ArrayList<File> concatFiles = new ArrayList<>();
 
-        for (File f : dir.listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File f) {
-                return f.getName().startsWith("reg") && (!f.getName().contains("_X")) && f.getName().contains("_Expression") && f.getName().endsWith(".txt");
-            }
-        })) {
+        for (File f : compDir.listFiles(f -> f.getName().startsWith("reg") && (!f.getName().contains("_X")) && f.getName().contains("_Expression") && f.getName().endsWith(".txt"))) {
+            concatFiles.add(f);
+        }
+
+        for (File f : uncompDir.listFiles(f -> f.getName().startsWith("reg") && (!f.getName().contains("_X")) && f.getName().contains("_Expression") && f.getName().endsWith(".txt"))) {
             concatFiles.add(f);
         }
 
         System.out.println("Found regions: " + concatFiles.toString());
 
         for (File reg : concatFiles) {
-
-//            if (args.length > 1) {
-//                processFile(reg, config, args[1]);
-//            } else {
-                processFile(reg, segParam, null);
-//            }
+            processFile(reg, segParam, null);
         }
     }
 
@@ -64,9 +60,6 @@ public class MakeFCS {
 
         String[] header = it.next();
 
-//        Properties prop = new Properties();
-//        InputStream input = new FileInputStream(configFile);
-//        prop.load(input);
         String nuclearStainChannelS = String.valueOf(segParam.getNuclearStainChannel());
         int nuclearStainCycle = segParam.getMembraneStainCycle();
 
@@ -97,21 +90,13 @@ public class MakeFCS {
         }
 
         String[][] chNames = null;
-        File chNamesF = new File(f.getParentFile().getParent() + File.separator + "channelNames.txt");
+        File chNamesF = new File(dir.getParentFile().getParentFile().getParentFile() + File.separator + "channelNames.txt");
         if (chNamesF.exists()) {
             System.out.println("Found channel names file!");
-            java.util.List<String[]> chNamesL = new CSVReader(new FileReader(chNamesF), '\t').readAll();
+            List<String[]> chNamesL = new CSVReader(new FileReader(chNamesF), '\t').readAll();
             chNames = chNamesL.toArray(new String[chNamesL.size()][]);
         } else {
-            chNamesF = new File(f.getParentFile().getParentFile().getParent() + File.separator + "channelNames.txt");
-            if(chNamesF.exists()) {
-                System.out.println("Found channel names file!");
-                java.util.List<String[]> chNamesL = new CSVReader(new FileReader(chNamesF), '\t').readAll();
-                chNames = chNamesL.toArray(new String[chNamesL.size()][]);
-            }
-            else {
-                throw new IllegalStateException("channelNames.txt file does not exist! Exiting...");
-            }
+            throw new IllegalStateException("channelNames.txt file does not exist! Exiting...");
         }
 
         if (chNames.length < splitHeader.length - offset) {
@@ -158,8 +143,7 @@ public class MakeFCS {
         String s  = "-InputFile:\"" + outPath + "\"";
         System.out.println(s);
 
-        CSV2FCSApp.main(new String[]{"-InputFile:"+ s});
-
+        CSV2FCSApp.main(new String[]{s});
     }
 
     private static double[] getVecForCycle(String[] line, int offset, int numReadoutChannels, int cycle) {
@@ -186,16 +170,6 @@ public class MakeFCS {
         out[0] = Arrays.copyOf(src, idx);
         out[1] = Arrays.copyOfRange(src, idx, src.length);
         return out;
-    }
-
-    private class DP {
-
-        String[] geom;
-        double size;
-        double[] cycle_profile;
-        double nucl_StainDensity;
-        double profileHomog;
-        double avgBG;
     }
 
 }

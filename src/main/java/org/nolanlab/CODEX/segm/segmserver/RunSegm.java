@@ -34,10 +34,11 @@ public class RunSegm {
         if (!rootDir.exists()) {
             throw new IllegalArgumentException("Error: Cannot find the input directoty");
         }
-        
-        File[] regFolder = rootDir.listFiles(r -> r.isDirectory() && r.getName().startsWith("reg"));
+
+        File tilesDir = new File(rootDir + File.separator + "tiles");
+        File[] regFolder = tilesDir.listFiles(r -> r.isDirectory() && r.getName().startsWith("reg"));
         if (regFolder != null && regFolder.length != 0) {
-            File expJSON = new File(segParam.getRootDir() + File.separator + "Experiment.json");
+            File expJSON = new File(segParam.getRootDir().getParentFile() + File.separator + "Experiment.json");
             ExperimentHelper experimentHelper = new ExperimentHelper();
             Experiment exp = experimentHelper.loadFromJSON(expJSON);
             for (int reg = 0; reg < regFolder.length; reg++) {
@@ -46,59 +47,30 @@ public class RunSegm {
                     fo.openAsVirtualStack(true);
                     ImagePlus imp = fo.openFolder(regFolder[reg].getPath());
                     ImagePlus hyp = HyperStackConverter.toHyperStack(imp, exp.getChannel_names().length, exp.getNum_z_planes(), exp.getNum_cycles(), "default", "Composite");
-                    doSeg(regFolder[reg], hyp, segParam);
+                    segmentTiff(hyp, 0, segParam);
                 }
             }
         }
-//        else {
-//            doSeg(rootDir, null, segParam);
-//        }
+        else {
+            throw new IllegalStateException("No image sequence folders found. Run uploader and try again!");
+        }
         File segJsonOut = new File(rootDir.getAbsolutePath()+File.separator+"segm"+File.separator+"segm_"+timestamp + File.separator + "segmConfig.json");
         segmHelper.saveToFile(segParam, segJsonOut);
     }
 
-    private static void doSeg(File f, ImagePlus imp, SegConfigParam segConfigParam) throws Exception {
-        int tile = 0;
-//        if(!imageSeq) {
-//            for (File currTiff : f.listFiles(new FilenameFilter() {
-//                @Override
-//                public boolean accept(File dir, String name) {
-//                    return name.endsWith(".tiff") || name.endsWith(".tif");
-//                }
-//            })) {
-//                segmentTiff(currTiff, imp, tile, segConfigParam, imageSeq);
-//            }
-//        }
-//        else {
-            segmentTiff(null, imp, tile, segConfigParam);
-//        }
-    }
-
-    private static void segmentTiff(File currTiff, ImagePlus imp, int tile, SegConfigParam segConfigParam) throws Exception {
+    private static void segmentTiff(ImagePlus imp, int tile, SegConfigParam segConfigParam) throws Exception {
         Duplicator dup = new Duplicator();
         int j;
         int i;
         ++tile;
-//        if (!imageSeq) {
-//            System.out.print("\nprocessing file: " + currTiff.getName() + "\n");
-//        } else {
-            System.out.print("\nprocessing image seq: " + imp.getTitle() + "\n");
-//        }
-//        if (currTiff != null && !imageSeq) {
-//            if (!currTiff.exists()) {
-//                throw new IllegalArgumentException("Error: Cannot find the input file:" + currTiff);
-//            }
-//            if (!imageSeq) {
-//                imp = IJ.openImage(currTiff.getAbsolutePath());
-//            }
-//            if (imp == null) {
-//                throw new IllegalStateException("Couldn't open the image file: " + currTiff);
-//            }
-//        }
+
+        System.out.print("\nprocessing image seq: " + imp.getTitle() + "\n");
+
         int[] readoutChannels = new int[imp.getNChannels()];
         for (int x = 0; x < imp.getNChannels(); x++) {
             readoutChannels[x] = x + 1;
         }
+
         imp.getNFrames();
         ImagePlus nucl = dup.run(imp, segConfigParam.getNuclearStainChannel(), segConfigParam.getNuclearStainChannel(), 1, imp.getNSlices(), segConfigParam.getNuclearStainCycle(), segConfigParam.getNuclearStainCycle());
         ImagePlus mult = nucl;
@@ -150,107 +122,77 @@ public class RunSegm {
         double sizeCutoff = (segConfigParam.getRadius() * segConfigParam.getRadius() * segConfigParam.getRadius()) * Math.PI * (4.0 / 3.0);
         cellsSegmentedObject = Arrays.stream(cellsSegmentedObject).filter(c -> c.getPoints().length >= sizeCutoff).toArray(SegmentedObject[]::new);
         BufferedImage[] bi2 = null;
-//        if(currTiff != null && !imageSeq) {
-//            //Apply overlay to the different Z stacks of the actual tif file based on different masks.
-//            File segOut = new File(currTiff.getParentFile().getPath()+File.separator+"segm"+File.separator+"segm_"+timestamp);
-//            segOut.mkdir();
-//            bi2 = RegionImageWriter.writeRegionImage(cellsSegmentedObject, mult, currTiff.getName(), segOut);
-//            ImagePlus copy = IJ.openImage(currTiff.getAbsolutePath());
-//            Overlay overlay = new Overlay();
-//
-//            for (int z = 0; z < bi2.length; z++) {
-//                ImagePlus im2 = new ImagePlus("Image Slice: " + z, bi2[z]);
-//                ImageRoi imgRoi = new ImageRoi(0, 0, im2.getProcessor());
-//                imgRoi.setNonScalable(true);
-//                imgRoi.setZeroTransparent(true);
-//                imgRoi.setOpacity(1);
-//                imgRoi.setPosition(0, z + 1, 0);
-//                overlay.add(imgRoi);
-//            }
-//
-//            copy.setOverlay(overlay);
-//            IJ.saveAsTiff(copy, segOut + File.separator + copy.getTitle());
-//        }
-//        else {
-            File segOut = new File(segConfigParam.getRootDir()+File.separator+"segm"+File.separator+"segm_"+timestamp);
-            if(!segOut.exists() && !segOut.isDirectory()) {
-                segOut.mkdirs();
-            }
-            File outdir = new File(segOut+File.separator+imp.getTitle());
+
+        File segOut = new File(segConfigParam.getRootDir()+File.separator+"segm"+File.separator+"segm_"+timestamp);
+        if(!segOut.exists() && !segOut.isDirectory()) {
+            segOut.mkdirs();
+        }
+
+        File masksOut = new File(segOut + File.separator + "masks");
+        if(!masksOut.exists() && !masksOut.isDirectory()) {
+            masksOut.mkdirs();
+        }
+
+        File fcsOut = new File(segOut + File.separator + "FCS");
+        if(!fcsOut.exists() && !fcsOut.isDirectory()) {
+            fcsOut.mkdirs();
+        }
+
+        File compensatedOut = new File(fcsOut + File.separator + "compensated");
+        if(!compensatedOut.exists() && !compensatedOut.isDirectory()) {
+            compensatedOut.mkdirs();
+        }
+
+        File uncompensatedOut = new File(fcsOut + File.separator + "uncompensated");
+        if(!uncompensatedOut.exists() && !uncompensatedOut.isDirectory()) {
+            uncompensatedOut.mkdirs();
+        }
+
+
+        File outdir = masksOut; //new File(masksOut+File.separator+imp.getTitle());
+        if(outdir.exists()) {
             outdir.mkdir();
-            bi2 = RegionImageWriter.writeRegionImage(cellsSegmentedObject, mult, imp.getTitle(), outdir);
-//        }
+        }
 
-            File dir = (currTiff == null) ? segConfigParam.getRootDir()  : currTiff.getParentFile();
-            File bestFocusDir = new File(dir + File.separator + "bestFocus");
+        RegionImageWriter.writeRegionImage(cellsSegmentedObject, mult, imp.getTitle(), outdir);
 
-            if (!bestFocusDir.exists()) {
-                System.out.println("Best focus folder cannot be found. Cannot apply overlays here." + bestFocusDir);
-            } else {
-                File[] bestFocusFiles = bestFocusDir.listFiles(t -> (t.getName().endsWith("tif") || t.getName().endsWith("tiff")));
-                if (bestFocusFiles.length != 0) {
-                    try {
-//                        if(currTiff != null && !imageSeq) {
-//                            System.out.println("Applying mask/overlay for bestFocus file: " + FilenameUtils.removeExtension(currTiff.getName()));
-//                            applyBestFocusOverlay(bestFocusDir, currTiff, bi2, imageSeq);
-//                        }
-//                        else {
-                            System.out.println("Applying mask/overlay for bestFocus file: " + imp.getTitle());
-                            applyBestFocusOverlay(bestFocusDir, new File(segConfigParam.getRootDir()+File.separator+"segm"+File.separator+"segm_"+timestamp+File.separator+imp.getTitle()), bi2);
-//                        }
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
+        File dir = segConfigParam.getRootDir();
+        if(dir == null) {
+            throw new IllegalStateException("The root directory for segmentation is not right!");
+        }
+
+        int numFrames = imp.getNFrames();
+        String title = imp.getTitle();
+        if (cellsSegmentedObject.length == 0) {
+            System.out.println("Didn't find any cells here. exiting");
+
+            BufferedWriter bwUncomp = new BufferedWriter(new FileWriter(new File(uncompensatedOut + File.separator + title) + "_Expression_Uncompensated.txt"));
+            BufferedWriter bwComp = new BufferedWriter(new FileWriter(new File(compensatedOut + File.separator + title) + "_Expression_Compensated.txt"));
+
+            for (BufferedWriter bw : new BufferedWriter[]{bwUncomp, bwComp}) {
+                bw.write("cell_id\ttile_nr\tX\tY\tZ\tsize");
+                for (int i3 = 1; i3 <= numFrames; ++i3) {
+                    for (int j2 = 0; j2 < readoutChannels.length; ++j2) {
+                        bw.write("\tCyc_" + i3 + "_ch_" + readoutChannels[j2]);
                     }
-                } else {
-                    System.out.println("No files present inside the best focus folder, so not applying the overlays here.");
                 }
-            }
-
-            int numFrames = imp.getNFrames();
-            String title = imp.getTitle();
-            if (cellsSegmentedObject.length == 0) {
-                System.out.println("Didn't find any cells here. exiting");
-
-                BufferedWriter bwUncomp = null;
-                BufferedWriter bwComp = null;
-
-//                if(currTiff != null && !imageSeq) {
-//                    bwUncomp = new BufferedWriter(new FileWriter(currTiff.getParentFile().getAbsolutePath()+File.separator +"segm"+File.separator+"segm_"+timestamp + File.separator + currTiff.getName() + "_Expression_Uncompensated.txt"));
-//                    bwComp = new BufferedWriter(new FileWriter(currTiff.getParentFile().getAbsolutePath()+File.separator+"segm"+File.separator+"segm_"+timestamp + File.separator + currTiff.getName()+ "_Expression_Compensated.txt"));
-//                }
-//                else {
-                    bwUncomp = new BufferedWriter(new FileWriter(new File(segConfigParam.getRootDir()+File.separator+"segm"+File.separator+"segm_"+timestamp+File.separator+title) + "_Expression_Uncompensated.txt"));
-                    bwComp = new BufferedWriter(new FileWriter(new File(segConfigParam.getRootDir()+File.separator+"segm"+File.separator+"segm_"+timestamp+File.separator+title) + "_Expression_Compensated.txt"));
-//                }
-
-                for (BufferedWriter bw : new BufferedWriter[]{bwUncomp, bwComp}) {
-                    bw.write("cell_id\ttile_nr\tX\tY\tZ\tsize");
+                for (int k = 0; k < segConfigParam.getConcentricCircles(); k++) {
                     for (int i3 = 1; i3 <= numFrames; ++i3) {
                         for (int j2 = 0; j2 < readoutChannels.length; ++j2) {
-                            bw.write("\tCyc_" + i3 + "_ch_" + readoutChannels[j2]);
+                            bw.write("\tCircle_" + k + "_Cyc_" + i3 + "_ch_" + readoutChannels[j2]);
                         }
                     }
-                    for (int k = 0; k < segConfigParam.getConcentricCircles(); k++) {
-                        for (int i3 = 1; i3 <= numFrames; ++i3) {
-                            for (int j2 = 0; j2 < readoutChannels.length; ++j2) {
-                                bw.write("\tCircle_" + k + "_Cyc_" + i3 + "_ch_" + readoutChannels[j2]);
-                            }
-                        }
-                    }
-                    bw.write("\n");
                 }
-                BufferedWriter bwGN = null;
-//                if(currTiff != null && !imageSeq) {
-//                    bwGN = new BufferedWriter(new FileWriter(currTiff.getParentFile().getAbsolutePath()+File.separator+"segm"+File.separator+"segm_"+timestamp + File.separator + currTiff.getName()+ "_GabrielGraph.txt"));
-//                }
-//                else {
-                    bwGN = new BufferedWriter(new FileWriter(new File(segConfigParam.getRootDir()+File.separator+"segm"+File.separator+"segm_"+timestamp+File.separator+title) + "_GabrielGraph.txt"));
-//                }
-                bwGN.write("");
-                bwGN.flush();
-                bwGN.close();
-                //continue;
+                bw.write("\n");
             }
+
+            BufferedWriter bwGN = new BufferedWriter(new FileWriter(new File(fcsOut + File.separator + title) + "_GabrielGraph.txt"));
+
+            bwGN.write("");
+            bwGN.flush();
+            bwGN.close();
+            //continue;
+        }
 
         int w = mult.getWidth();
         int h = mult.getHeight();
@@ -345,16 +287,9 @@ public class RunSegm {
         adjN = null;
         System.gc();
 
-        BufferedWriter bwUncomp = null;
-        BufferedWriter bwComp = null;
-//        if(currTiff != null && !imageSeq) {
-//            bwUncomp = new BufferedWriter(new FileWriter(currTiff.getParentFile().getAbsolutePath()+File.separator+"segm"+File.separator+"segm_"+timestamp + File.separator + currTiff.getName()+ "_Expression_Uncompensated.txt"));
-//            bwComp = new BufferedWriter(new FileWriter(currTiff.getParentFile().getAbsolutePath()+File.separator+"segm"+File.separator+"segm_"+timestamp + File.separator + currTiff.getName()+ "_Expression_Compensated.txt"));
-//        }
-//        else {
-            bwUncomp = new BufferedWriter(new FileWriter(new File(segConfigParam.getRootDir()+File.separator+"segm"+File.separator+"segm_"+timestamp+File.separator+title) + "_Expression_Uncompensated.txt"));
-            bwComp = new BufferedWriter(new FileWriter(new File(segConfigParam.getRootDir()+File.separator+"segm"+File.separator+"segm_"+timestamp+File.separator+title) + "_Expression_Compensated.txt"));
-//        }
+        BufferedWriter bwUncomp = new BufferedWriter(new FileWriter(new File(uncompensatedOut + File.separator + title) + "_Expression_Uncompensated.txt"));;
+        BufferedWriter bwComp = new BufferedWriter(new FileWriter(new File(compensatedOut +File.separator + title) + "_Expression_Compensated.txt"));;
+
         for (BufferedWriter bw22 : new BufferedWriter[]{bwUncomp, bwComp}) {
             bw22.write("cell_id\ttile_nr\tX\tY\tZ\tsize");
             for (int i6 = 1; i6 <= numFrames; ++i6) {
@@ -399,13 +334,9 @@ public class RunSegm {
         if (segConfigParam.isDelaunay_graph()) {
             System.out.println("Computing Delaunay graph:");
             Collection<Cell>[] gn = Neighborhood.findDelaunayNeighbors(cellArr, (int) w, (int) h, (int) d);
-            BufferedWriter bwGN;
-//            if(currTiff != null && !imageSeq) {
-//                bwGN = new BufferedWriter(new FileWriter(currTiff.getParentFile().getAbsolutePath()+File.separator+"segm"+File.separator+"segm_"+timestamp + File.separator + currTiff.getName()+ "_DelaunayGraph.txt"));
-//            }
-//            else {
-                bwGN = new BufferedWriter(new FileWriter(segConfigParam.getRootDir().getPath()+"segm"+File.separator+"segm_"+timestamp +File.separator+ "_DelaunayGraph.txt"));
-//            }
+
+            BufferedWriter bwGN = new BufferedWriter(new FileWriter(fcsOut + File.separator + "_DelaunayGraph.txt"));
+
             for (int i7 = 0; i7 < gn.length; ++i7) {
                 for (Cell cell : gn[i7]) {
                     bwGN.write("" + cellArr[i7].getId() + "\t" + cell.getId() + "\n");
@@ -427,13 +358,8 @@ public class RunSegm {
      */
     private static void applyBestFocusOverlay(File bestFocusDir, File currTiff, BufferedImage [] overlays) throws IllegalStateException {
 
-        File[] lst = null;
-//        if(!imgSeq) {
-//            lst = bestFocusDir.listFiles(tif -> (FilenameUtils.removeExtension(tif.getName()).contains(FilenameUtils.removeExtension(currTiff.getName()))) & (tif.getName().endsWith(".tif") || tif.getName().endsWith(".tiff")));
-//        }
-//        else {
-            lst = bestFocusDir.listFiles(tif -> (FilenameUtils.removeExtension(tif.getName()).contains(currTiff.getName())) & (tif.getName().endsWith(".tif") || tif.getName().endsWith(".tiff")));
-//        }
+        File[] lst = bestFocusDir.listFiles(tif -> (FilenameUtils.removeExtension(tif.getName()).contains(currTiff.getName())) & (tif.getName().endsWith(".tif") || tif.getName().endsWith(".tiff")));
+
         if(lst.length != 1) {
             throw new IllegalStateException("Found more than one or less than one match for file:" + Arrays.toString(lst));
         }

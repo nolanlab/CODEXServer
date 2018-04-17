@@ -62,7 +62,7 @@ public class SegmController {
             SegConfigParam segParam = new SegConfigParam();
 
             String serverConfig = System.getProperty("user.dir");
-            File rootDir = new File(serverConfig + File.separator + user + File.separator + exp + File.separator + "processed");
+            File rootDir = new File(serverConfig + File.separator + "data" + File.separator + user + File.separator + exp + File.separator + "processed");
 
             segParam.setRootDir(rootDir);
             segParam.setShowImage(showImage);

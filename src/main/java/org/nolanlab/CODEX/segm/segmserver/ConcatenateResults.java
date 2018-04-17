@@ -21,22 +21,26 @@ import java.util.List;
 public class ConcatenateResults {
 
     public static void callConcatenateResults(File dir) throws Exception {
-        
-//        File dir = new File(args[0]);
-        
+
+        File fcsDir = new File(dir + File.separator + "FCS");
+        File compDir = new File(fcsDir + File.separator + "compensated");
+        File uncompDir = new File(fcsDir + File.separator + "uncompensated");
+
         ArrayList<String> regions = new ArrayList<>();
-        
-        for (File f : dir.listFiles(new FileFilter() {
-                @Override
-                public boolean accept(File f) {
-                    return f.getName().startsWith("reg")&&f.getName().contains("_X")&&f.getName().contains("_Expression")&&(f.getName().endsWith(".txt")||f.getName().endsWith(".csv"));
-                }
-            })){
+
+        for (File f : compDir.listFiles(f -> f.getName().startsWith("reg")&&f.getName().contains("_X")&&f.getName().contains("_Expression")&&(f.getName().endsWith(".txt")||f.getName().endsWith(".csv")))){
             String reg= f.getName().split("_")[0];
-            if(!regions.contains(reg))regions.add(reg);
+            if(!regions.contains(reg)) {
+                regions.add(reg);
+            }
         }
-        
-       
+
+        for (File f : uncompDir.listFiles(f -> f.getName().startsWith("reg")&&f.getName().contains("_X")&&f.getName().contains("_Expression")&&(f.getName().endsWith(".txt")||f.getName().endsWith(".csv")))){
+            String reg= f.getName().split("_")[0];
+            if(!regions.contains(reg)) {
+                regions.add(reg);
+            }
+        }
         
         System.out.println("Found regions: " + regions.toString());
         System.out.println("Creating a map to calculate X and Y offsets...");
@@ -46,13 +50,15 @@ public class ConcatenateResults {
             
         for (String st : new String[]{"_Expression_Uncompensated.txt", "_Expression_Compensated.txt"}) {
             String headerLine = null;
-            BufferedWriter bw = new BufferedWriter(new FileWriter(dir.getAbsolutePath() + File.separator + reg + st));
-            for (File f : dir.listFiles(new FileFilter() {
-                @Override
-                public boolean accept(File f) {
-                    return f.getName().endsWith(st) && f.getName().startsWith(reg)&&f.getName().contains("_X")&&f.getName().contains("_Expression");
-                }
-            })) {
+            File txtDir;
+            if(st.contains("_Uncom")) {
+                txtDir = uncompDir;
+            }
+            else {
+                txtDir = compDir;
+            }
+            BufferedWriter bw = new BufferedWriter(new FileWriter(txtDir.getAbsolutePath() + File.separator + reg + st));
+            for (File f : txtDir.listFiles(f -> f.getName().endsWith(st) && f.getName().startsWith(reg)&&f.getName().contains("_X")&&f.getName().contains("_Expression"))) {
                 System.out.println("Concatenating: " + f.getName());
                 BufferedReader br = new BufferedReader(new FileReader(f));
 
