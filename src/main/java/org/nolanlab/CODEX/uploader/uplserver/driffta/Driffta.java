@@ -44,6 +44,7 @@ public class Driffta {
         ExperimentHelper expHelper = new ExperimentHelper();
         BestFocusHelper bfHelper = new BestFocusHelper();
 
+        //Specify the serverConfig
         String serverConfig = System.getProperty("user.dir") + File.separator + "data";
 
         Properties config = new Properties();
