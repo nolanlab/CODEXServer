@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+<div ng-app="processor">
+    <p><b>Experiment Details</b></p>
+    <form ng-submit="submit()">
+        <table>
+            <tr>
+                <td>
+                    Experiment folder :
+                </td>
+                <td>
+                    <script type="text/javascript">
+                        var expFolder = new Folder(document.getElementById("exp"));
+                        expFolder.onchange=function(){
+                            var files = expFolder.files;
+                            var len = files.length;
+                        }
+                    </script>
+                    <input id="exp" type="file" ng-model="expDir" webkitdirectory multiple/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Experiment Name :
+                </td>
+                <td>
+                    <input type="text" ng-model="expname">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Project:
+                </td>
+                <td>
+                    <input type="text" ng-model="project">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    CODEX Instrument:
+                </td>
+                <td>
+                    <input type="text" ng-model="codexInst">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Microscrope:
+                </td>
+                <td>
+                    <div ng-controller="microscopeController">
+                        <select ng-model="selectedName" ng-options="x for x in names">
+                        </select>
+                    </div>
+                    <script type = "text/javascript">
+                        var app = angular.module('processor', []);
+                        app.controller('microscopeController', function($scope) {
+                            $scope.names = ["Keyence", "Zeiss", "Leica"];
+                        });
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Deconvolution:
+                </td>
+                <td>
+                    <div ng-controller="deconvoCont">
+                        <select ng-model="selectedName" ng-options="x for x in names">
+                        </select>
+                    </div>
+                    <script type = "text/javascript">
+                        var app = angular.module('processor', []);
+                        app.controller('deconvoCont', function($scope) {
+                            $scope.names = ["Microvolution", "none"];
+                        });
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Objective type:
+                </td>
+                <td>
+                    <div ng-controller="objTypeCont">
+                        <select ng-model="selectedName" ng-options="x for x in names">
+                        </select>
+                    </div>
+                    <script type = "text/javascript">
+                        var app = angular.module('processor', []);
+                        app.controller('objTypeCont', function($scope) {
+                            $scope.names = ["air", "water", "oil"];
+                        });
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Magnification:
+                </td>
+                <td>
+                    <input type="text" ng-model="magnification">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Numerical aperture:
+                </td>
+                <td>
+                    <input type="text" ng-model="numAperture">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Lateral resolution:
+                </td>
+                <td>
+                    <input type="text" ng-model="latRes">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Z pitch(nm):
+                </td>
+                <td>
+                    <input type="text" ng-model="zPitch">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    No. of Z slices:
+                </td>
+                <td>
+                    <input type="text" ng-model="zSlices">
+                </td>
+            </tr>
+
+
+        </table>
+        <input type="submit" id="submit" value="Start processing" />
+    </form>
+</div>
+</body>
+</html>

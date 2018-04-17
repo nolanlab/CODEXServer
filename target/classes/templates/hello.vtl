@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Friend!</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+
+    <script>
+function  myFunction(){
+    var options = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+
+    var dropdownX = document.getElementById("selectX");
+
+    for (var i = 0; i < options.length; ++i) dropdownX[dropdownX.length] = new Option(options[i], options[i]);
+
+    var dropdownY = document.getElementById("selectY");
+
+    for (var i = 0; i < options.length; ++i) dropdownY[dropdownY.length] = new Option(options[i], options[i]);
+
+    initDraw(document.getElementById('canvas'));
+
+
+}
+
+
+
+function initDraw(canvas) {
+    function setMousePosition(e) {
+        var ev = e || window.event; //Moz || IE
+        if (ev.pageX) { //Moz
+            mouse.x = ev.pageX + window.pageXOffset;
+            mouse.y = ev.pageY + window.pageYOffset;
+        } else if (ev.clientX) { //IE
+            mouse.x = ev.clientX + document.body.scrollLeft;
+            mouse.y = ev.clientY + document.body.scrollTop;
+        }
+    };
+
+    var mouse = {
+        x: 0,
+        y: 0,
+        startX: 0,
+        startY: 0
+    };
+    var element = null;
+
+    canvas.onmousemove = function (e) {
+        setMousePosition(e);
+        if (element !== null) {
+            element.style.width = Math.abs(mouse.x - mouse.startX) + 'px';
+            element.style.height = Math.abs(mouse.y - mouse.startY) + 'px';
+            element.style.left = (mouse.x - mouse.startX < 0) ? mouse.x + 'px' : mouse.startX + 'px';
+            element.style.top = (mouse.y - mouse.startY < 0) ? mouse.y + 'px' : mouse.startY + 'px';
+        }
+    }
+
+    canvas.onclick = function (e) {
+        if (element !== null) {
+            element = null;
+            canvas.style.cursor = "default";
+            console.log("finsihed.");
+        } else {
+            console.log("begun.");
+            mouse.startX = mouse.x;
+            mouse.startY = mouse.y;
+            element = document.createElement('div');
+            element.className = 'rectangle'
+            element.style.left = mouse.x + 'px';
+            element.style.top = mouse.y + 'px';
+            canvas.appendChild(element)
+            canvas.style.cursor = "crosshair";
+        }
+    }
+}
+
+</script>
+
+    <style>
+
+        #canvas {
+    width:256px;
+    height:256px;
+    border: 10px solid transparent;
+}
+.rectangle {
+    border: 1px solid #FF0000;
+    position: absolute;
+}
+    </style>
+
+</head>
+
+
+
+<body onload="myFunction()">
+<!--It's useful to put a comment at the top of your vtl file to help you keep track of what is what when things get more complex.-->
+<div align="center">
+    <form name='add' method="get">
+        X: <select name='X' id="selectX">
+    </select>
+        Y: <select name='Y' id="selectY">
+    </select>
+        <input type='submit' name='submit'/>
+    </form>
+
+
+
+    <div id="canvas"><img src="http://localhost:4567/biaxial?X=${X}&Y=${Y}"></div>
+
+</div>
+</body>
+</html>
