@@ -149,9 +149,9 @@ public class RunSegm {
         }
 
 
-        File outdir = masksOut; //new File(masksOut+File.separator+imp.getTitle());
-        if(outdir.exists()) {
-            outdir.mkdir();
+        File outdir = new File(masksOut+File.separator+imp.getTitle());
+        if(!outdir.exists()) {
+            outdir.mkdirs();
         }
 
         RegionImageWriter.writeRegionImage(cellsSegmentedObject, mult, imp.getTitle(), outdir);
