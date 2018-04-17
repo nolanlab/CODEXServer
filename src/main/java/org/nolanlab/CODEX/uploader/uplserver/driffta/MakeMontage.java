@@ -55,56 +55,35 @@ public class MakeMontage {
 
         ImagePlus[] impArr;
 
-//        if(exp.isExportImgSeq()) {
-            seqFiles = tilesDir.listFiles(t -> t.isDirectory() && t.getName().startsWith("reg"));
-            impArr = new ImagePlus[seqFiles.length];
+        seqFiles = tilesDir.listFiles(t -> t.isDirectory() && t.getName().startsWith("reg"));
+        impArr = new ImagePlus[seqFiles.length];
 
-            for(int i=0; i<seqFiles.length; i++) {
-                ArrayList<ImagePlus> stacks = new ArrayList<>();
-                File[] tifFiles = seqFiles[i].listFiles(tif -> tif.getName().endsWith("tif") || tif.getName().endsWith("tiff"));
-                for(File aTifFile : tifFiles) {
-                    int z = tileVsBf.get(seqFiles[i].getName());
-                    //Search for _Z instead
-                    String zNumberStr = aTifFile.getName().substring(21, 24);
-                    int zNumber = zNumberStr == null ? 0 : Integer.parseInt(zNumberStr);
-                    if(zNumber != z) {
-                        continue;
-                    }
-                    else {
-                        ImagePlus im = IJ.openImage(aTifFile.getPath());
-                        stacks.add(im);
-                    }
+        for(int i=0; i<seqFiles.length; i++) {
+            ArrayList<ImagePlus> stacks = new ArrayList<>();
+            File[] tifFiles = seqFiles[i].listFiles(tif -> tif.getName().endsWith("tif") || tif.getName().endsWith("tiff"));
+            for(File aTifFile : tifFiles) {
+                int z = tileVsBf.get(seqFiles[i].getName());
+                //Search for _Z instead
+                String zNumberStr = aTifFile.getName().substring(21, 24);
+                int zNumber = zNumberStr == null ? 0 : Integer.parseInt(zNumberStr);
+                if(zNumber != z) {
+                    continue;
                 }
-                ImagePlus concatenatedStacks = new Concatenator().concatenate(stacks.toArray(new ImagePlus[stacks.size()]), false);
-                ImagePlus hyp = HyperStackConverter.toHyperStack(concatenatedStacks, exp.getChannel_names().length, 1, exp.getNum_cycles(), "default", "Composite");
-                hyp.setTitle(seqFiles[i].getName());
-                impArr[i] = hyp ;
+                else {
+                    ImagePlus im = IJ.openImage(aTifFile.getPath());
+                    stacks.add(im);
+                }
             }
+            ImagePlus concatenatedStacks = new Concatenator().concatenate(stacks.toArray(new ImagePlus[stacks.size()]), false);
+            ImagePlus hyp = HyperStackConverter.toHyperStack(concatenatedStacks, exp.getChannel_names().length, 1, exp.getNum_cycles(), "default", "Composite");
+            hyp.setTitle(seqFiles[i].getName());
+            impArr[i] = hyp ;
+        }
 
-            logger.print("Found " + seqFiles.length + " image sequence folders:");
-            for (File file1 : seqFiles) {
-                logger.print(file1);
-            }
-//        }
-        //deprecated
-//        else {
-//            tifFiles = tilesDir.listFiles(t -> t.getName().endsWith(".tif") || t.getName().endsWith(".tiff"));
-//            impArr = new ImagePlus[tifFiles.length];
-//
-//            for(int i=0; i<tifFiles.length; i++) {
-//                ImagePlus opIm = IJ.openImage(tifFiles[i].getPath());
-//                String tifName = FilenameUtils.removeExtension(tifFiles[i].getName());
-//                int z = tileVsBf.get(tifName);
-//                ImagePlus aImp = dup.run(opIm, 1, opIm.getNChannels(), z, z, 1, opIm.getNFrames());
-//                aImp.setTitle(aImp.getTitle().replaceAll("DUP_", ""));
-//                impArr[i] = aImp;
-//            }
-//
-//            logger.print("Found " + tifFiles.length + " TIFF files:");
-//            for (File file1 : tifFiles) {
-//                logger.print(file1);
-//            }
-//        }
+        logger.print("Found " + seqFiles.length + " image sequence folders:");
+        for (File file1 : seqFiles) {
+            logger.print(file1);
+        }
 
         runMontageAlgo(impArr, mkMonDir, tileVsBf, factor);
     }
