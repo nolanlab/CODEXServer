@@ -112,14 +112,6 @@ public class frmMain extends JFrame {
 
         GridBagConstraints c = new GridBagConstraints();
         c.gridx=0;
-        c.gridy=0;
-        c.fill  = GridBagConstraints.BOTH;
-        c.weightx =1;
-        c.weighty =0;
-//        newPanel.add(uploadOptionsView, c);
-
-        c = new GridBagConstraints();
-        c.gridx=0;
         c.gridy=2;
         c.weightx =1;
         c.fill  = GridBagConstraints.HORIZONTAL;
@@ -567,13 +559,10 @@ public class frmMain extends JFrame {
 
                 Properties config = new Properties();
                 config.load(new FileInputStream(System.getProperty("user.home")+File.separator+"config.txt"));
-                String maxRAM = "";
-                if(config.toString().contains("maxRAM") && !StringUtils.isEmpty(config.get("maxRAM").toString())) {
-                    maxRAM = config.get("maxRAM").toString();
+                String upC = "";
+                if(config.toString().contains("TMP_SSD_DRIVE") && !StringUtils.isEmpty(config.get("TMP_SSD_DRIVE").toString())) {
+                    upC = config.get("TMP_SSD_DRIVE").toString().replaceAll(":", "");
                 }
-                maxRAM = maxRAM.equals("") ? "48":maxRAM;
-                String upC = config.get("TMP_SSD_DRIVE").toString().replaceAll(":", "");
-
                 for (int reg : exp.getRegIdx()) {
                     for (int tile = 1; tile <= exp.getRegion_height() * exp.getRegion_width(); tile++) {
                         //serverconfig

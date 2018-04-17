@@ -156,49 +156,49 @@ public class BestFocus {
         return hyp;
     }
 
-    public static void makeBestFocus(String user, String expName) {
-        String serverConfig = System.getProperty("user.dir") + File.separator + "data";
-        File expFolder = new File(serverConfig + File.separator + user + File.separator + expName);
-        String bestFocusLoc = expFolder.getPath()+File.separator+ "processed" + File.separator + "bestFocus";
-        File bf = new File(bestFocusLoc);
-        ExperimentHelper experimentHelper = new ExperimentHelper();
-        if(!bf.exists()) {
-            log("Best focus folder is not present. Running it for all the tiffs inside the processed folder.");
-            File mkBestFocus = new File(bestFocusLoc);
-            mkBestFocus.mkdir();
-            File processed = bf.getParentFile();
-            if(processed.isDirectory()) {
-                File[] procTiff = processed.listFiles(fName -> (fName.getName().endsWith(".tiff") || fName.getName().endsWith(".tif")));
-                File expJsonFile = new File(processed.getPath() + File.separator + "Experiment.json");
-                if (!expJsonFile.exists()) {
-                    throw new IllegalStateException("Experiment JSON file not found: " + expJsonFile);
-                }
-                try {
-                    Experiment exp = experimentHelper.loadFromJSON(expJsonFile);
-                    for (File aTif : procTiff) {
-                        ImagePlus p = IJ.openImage(aTif.getPath());
-                        int[] bestFocusPlanes = new int[p.getNFrames()];
-                        Duplicator dup = new Duplicator();
-                        ImagePlus rp = dup.run(p, exp.getBest_focus_channel(), exp.getBest_focus_channel(), 1, p.getNSlices(), exp.getBestFocusReferenceCycle() - exp.getCycle_lower_limit() + 1, exp.getBestFocusReferenceCycle() - exp.getCycle_lower_limit() + 1);
-                        int refZ = Math.max(1, BestFocus.findBestFocusStackFromSingleTimepoint(rp, 1, exp.isOptionalFocusFragment()));
-
-                        //Add offset here
-                        refZ = refZ + exp.getFocusing_offset();
-                        Arrays.fill(bestFocusPlanes, refZ);
-
-                        ImagePlus focused = BestFocus.createBestFocusStackFromHyperstack(p, bestFocusPlanes);
-                        log("Saving the focused tiff " + aTif.getName() + "where Z: " + bestFocusPlanes[0]);
-                        FileSaver fs = new FileSaver(focused);
-                        fs.saveAsTiff(bestFocusLoc + File.separator + experimentHelper.getDestStackFileNameWithZIndexForTif(exp.getTiling_mode(), aTif.getName(), bestFocusPlanes[0]));
-                    }
-                }
-                catch (Exception e) {
-                    log(e.getMessage());
-                }
-            }
-        }
-        else {
-            log("Best Focus folder was already created from Driffta...");
-        }
-    }
+//    public static void makeBestFocus(String user, String expName) {
+//        String serverConfig = System.getProperty("user.dir") + File.separator + "data";
+//        File expFolder = new File(serverConfig + File.separator + user + File.separator + expName);
+//        String bestFocusLoc = expFolder.getPath()+File.separator+ "processed" + File.separator + "bestFocus";
+//        File bf = new File(bestFocusLoc);
+//        ExperimentHelper experimentHelper = new ExperimentHelper();
+//        if(!bf.exists()) {
+//            log("Best focus folder is not present. Running it for all the tiffs inside the processed folder.");
+//            File mkBestFocus = new File(bestFocusLoc);
+//            mkBestFocus.mkdir();
+//            File processed = bf.getParentFile();
+//            if(processed.isDirectory()) {
+//                File[] procTiff = processed.listFiles(fName -> (fName.getName().endsWith(".tiff") || fName.getName().endsWith(".tif")));
+//                File expJsonFile = new File(processed.getPath() + File.separator + "Experiment.json");
+//                if (!expJsonFile.exists()) {
+//                    throw new IllegalStateException("Experiment JSON file not found: " + expJsonFile);
+//                }
+//                try {
+//                    Experiment exp = experimentHelper.loadFromJSON(expJsonFile);
+//                    for (File aTif : procTiff) {
+//                        ImagePlus p = IJ.openImage(aTif.getPath());
+//                        int[] bestFocusPlanes = new int[p.getNFrames()];
+//                        Duplicator dup = new Duplicator();
+//                        ImagePlus rp = dup.run(p, exp.getBest_focus_channel(), exp.getBest_focus_channel(), 1, p.getNSlices(), exp.getBestFocusReferenceCycle() - exp.getCycle_lower_limit() + 1, exp.getBestFocusReferenceCycle() - exp.getCycle_lower_limit() + 1);
+//                        int refZ = Math.max(1, BestFocus.findBestFocusStackFromSingleTimepoint(rp, 1, exp.isOptionalFocusFragment()));
+//
+//                        //Add offset here
+//                        refZ = refZ + exp.getFocusing_offset();
+//                        Arrays.fill(bestFocusPlanes, refZ);
+//
+//                        ImagePlus focused = BestFocus.createBestFocusStackFromHyperstack(p, bestFocusPlanes);
+//                        log("Saving the focused tiff " + aTif.getName() + "where Z: " + bestFocusPlanes[0]);
+//                        FileSaver fs = new FileSaver(focused);
+//                        fs.saveAsTiff(bestFocusLoc + File.separator + experimentHelper.getDestStackFileNameWithZIndexForTif(exp.getTiling_mode(), aTif.getName(), bestFocusPlanes[0]));
+//                    }
+//                }
+//                catch (Exception e) {
+//                    log(e.getMessage());
+//                }
+//            }
+//        }
+//        else {
+//            log("Best Focus folder was already created from Driffta...");
+//        }
+//    }
 }

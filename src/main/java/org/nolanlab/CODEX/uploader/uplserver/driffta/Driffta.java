@@ -37,6 +37,7 @@ public class Driffta {
     private static boolean color = false;
     private static HashMap<String, Double> expVsMs = new HashMap<>();
     private static LinkedHashMap<String, Integer> tileVsBf = new LinkedHashMap<>();
+    private static PrintStream logStream;
 
     public static void drifftaProcessing(String user, String expName, String r, String t) throws Exception {
 
@@ -70,12 +71,7 @@ public class Driffta {
         final int region = Integer.parseInt(r);
         final int tile = Integer.parseInt(t);
         
-        File d;
-        //if (!exp.isExportImgSeq()) {
-//            d = new File(serverConfig + File.separator + exp.getUsername() + File.separator + exp.getName() + File.separator + "processed" + File.separator + "tiles" + File.separator + expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width()));
-//        } else {
-            d = new File(serverConfig + File.separator + exp.getUserName() + File.separator + exp.getName() + File.separator + "processed" + File.separator + "tiles" + File.separator + FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width())));
-        //}
+        File d = new File(serverConfig + File.separator + exp.getUserName() + File.separator + exp.getName() + File.separator + "processed" + File.separator + "tiles" + File.separator + FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width())));
 
         if (!d.exists()) {
 
@@ -116,8 +112,7 @@ public class Driffta {
                     }
                 }
 
-
-                ImagePlus imp = null;
+                ImagePlus imp;
 
                 //Read stack array from the uploader cache directory.
                 log("Opening files");
@@ -261,47 +256,29 @@ public class Driffta {
                     reorderedHyp = backgroundSubtraction(hyp, exp, baseDir, channelNames);
                 }
 
-                //Save prcessed files as normal tiffs or image sequence
-//                if (!exp.isExportImgSeq()) {
-//                    String outStr = outDir + File.separator + expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width());
-//                    log("Saving result tiff file: " + outStr);
-//                    IJ.saveAsTiff(hyp, outStr);
-//                } else {
-                    if (reorderedHyp == null) {
-                        String outStr = outDir + File.separator + FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width()));
-                        File out = new File(outStr);
-                        if (!out.exists()) {
-                            out.mkdir();
-                        }
-
-                        log("Saving result file as image sequence: " + outStr);
-                        hyp.setTitle(FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width())));
-                        IJ.run(hyp, "Image Sequence... ", "format=TIFF save=" + outStr);
+                if (reorderedHyp == null) {
+                    String outStr = outDir + File.separator + FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width()));
+                    File out = new File(outStr);
+                    if (!out.exists()) {
+                        out.mkdir();
                     }
-                    else{
-                        String outStr = outDir + File.separator + FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width()));
-                        File out = new File(outStr);
-                        if (!out.exists()) {
-                            out.mkdir();
-                        }
-                        log("Saving result file as image sequence: " + outStr);
-                        reorderedHyp.setTitle(FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width())));
-                        IJ.run(reorderedHyp, "Image Sequence... ", "format=TIFF save=" + outStr);
+
+                    log("Saving result file as image sequence: " + outStr);
+                    hyp.setTitle(FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width())));
+                    IJ.run(hyp, "Image Sequence... ", "format=TIFF save=" + outStr);
+                }
+                else {
+                    String outStr = outDir + File.separator + FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width()));
+                    File out = new File(outStr);
+                    if (!out.exists()) {
+                        out.mkdir();
                     }
-//                }
+                    log("Saving result file as image sequence: " + outStr);
+                    reorderedHyp.setTitle(FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width())));
+                    IJ.run(reorderedHyp, "Image Sequence... ", "format=TIFF save=" + outStr);
+                }
 
-//                String bestFocus = outDir + File.separator + "bestFocus" + File.separator;
-//
-//                File bfFile = new File(bestFocus);
-//                if (!bfFile.exists()) {
-//                    bfFile.mkdirs();
-//                }
-//
-//                log("Running best focus");
-//                ImagePlus focused = BestFocus.createBestFocusStackFromHyperstack(hyp, bestFocusPlanes);
-//                log("Saving the focused tiff");
-//                IJ.saveAsTiff(focused, bestFocus + File.separator + expHelper.getDestStackFileNameWithZIndex(exp.getTiling_mode(), tile, region, exp.getRegion_width(), bestFocusPlanes[0]));
-
+                //Create the bestFocus.json and store the imagesequence as key and the bestFocus z slice as value as a map in the json.
                 File bestFocusFile = new File(outDir + File.separator + "bestFocus.json");
                 tileVsBf.put(FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width())), bestFocusPlanes[0]);
                 bfHelper.saveToFile(tileVsBf, bestFocusFile);
@@ -312,7 +289,6 @@ public class Driffta {
                 exp.setTile_height(hyp.getHeight());
 
                 log("All files opened. Deleting temporary dir");
-                //new Thread(() -> org.scijava.util.FileUtils.deleteRecursively(new File(outDir))).start();
                 delete(new File(baseDir));
             } catch (Exception e) {
                 e.printStackTrace();
@@ -340,13 +316,9 @@ public class Driffta {
         }
     }
 
-    private static File logFile = null;
-    private static PrintStream logStream;
-
     public static void log(String s) {
         logger.print(s);
     }
-
 
     @Override
     protected void finalize() throws Throwable {

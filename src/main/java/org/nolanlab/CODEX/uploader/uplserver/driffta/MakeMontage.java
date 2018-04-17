@@ -7,11 +7,9 @@ package org.nolanlab.CODEX.uploader.uplserver.driffta;
 
 
 import ij.*;
-import ij.io.Opener;
 import ij.plugin.*;
 import ij.process.LUT;
 import ij.process.StackProcessor;
-import org.apache.commons.io.FilenameUtils;
 import org.nolanlab.CODEX.uploader.uplclient.Experiment;
 import org.nolanlab.CODEX.utils.*;
 import org.nolanlab.CODEX.utils.codexhelper.BestFocusHelper;
@@ -97,12 +95,8 @@ public class MakeMontage {
 
         ImagePlus firstImp = impArr[0];
         ImagePlus imp;
-//        if(isImgSeq) {
-            imp = dup.run(firstImp, 1, firstImp.getNChannels(), tileVsBf.get(seqFiles[0].getName()), tileVsBf.get(seqFiles[0].getName()), 1, firstImp.getNFrames());
-//        }
-//        else {
-//            imp = dup.run(firstImp, 1, firstImp.getNChannels(), tileVsBf.get(FilenameUtils.removeExtension(tifFiles[0].getName())), tileVsBf.get(FilenameUtils.removeExtension(tifFiles[0].getName())), 1, firstImp.getNFrames());
-//        }
+        imp = dup.run(firstImp, 1, firstImp.getNChannels(), tileVsBf.get(seqFiles[0].getName()), tileVsBf.get(seqFiles[0].getName()), 1, firstImp.getNFrames());
+
         Arrays.asList(impArr).stream().collect(Collectors.groupingBy(t -> t.getTitle().split("_")[0])).forEach((regname, filesInReg) -> {
             int maxX = 0;
             int maxY = 0;
