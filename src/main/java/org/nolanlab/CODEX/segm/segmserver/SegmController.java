@@ -18,6 +18,8 @@ import static spark.Spark.*;
 
 public class SegmController {
 
+    private static RunSegm rs = new RunSegm();
+
     public static String dataHomeDir = null;
 
     public static void initServer(String dataHomeDir){
@@ -43,6 +45,8 @@ public class SegmController {
             List<String> exp = Arrays.asList(new File(dataHomeDir+"/"+user).listFiles(f->f.isDirectory())).stream().map(f->f.getName()).collect(Collectors.toList());
             return exp;
         }, gson::toJson);
+
+        get("/getProgress", "application/json", (request, response) -> String.valueOf(rs.getProgress()));
 
         post("/runSegm", "application/json", (request, response) -> {
             String user = request.queryParams("user");
@@ -104,7 +108,7 @@ public class SegmController {
             logger.print("Starting Main Segmentation...");
 
             try {
-                RunSegm.runSeg(segParam, timestamp);
+                rs.runSeg(segParam, timestamp);
             }
             catch (Exception e) {
                 return e.getMessage();

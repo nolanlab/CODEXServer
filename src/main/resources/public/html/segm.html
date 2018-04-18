@@ -27,12 +27,10 @@
 <div class="container" style="width:600px;">
     <h2 align="center">Segmentation Details</h2><br />
 
-    <form id ="segm" method="POST" action="http://localhost:4567/runSegm">
+    <form id ="segm" method="POST" action="http://localhost:4567/runSegm" onsubmit="showProgress()">
 
         <div class="form-group">
             <label for="user">Select User:</label>
-            <!--<input type="text" class="form-control" id="username" placeholder="Enter username" name="user" required>-->
-            <!--<select id="username" placeholder="Choose username" name="user" required></select>-->
             <select name="user" id="user" class="form-control input" placeholder="Choose user" required>
                 <option value="">Choose user</option>
             </select>
@@ -40,8 +38,6 @@
 
         <div class="form-group">
             <label for="exp">Enter experiment name:</label>
-            <!--<input type="text" class="form-control" id="exp" placeholder="Enter experiment" name="exp" required>-->
-            <!--<select id="exp" placeholder="Choose experiment" name="exp" required></select>-->
             <select name="exp" id="exp" class="form-control input" placeholder="Choose experiment" required>
                 <option value="">Choose experiment</option>
             </select>
@@ -87,54 +83,39 @@
             <input type="number" class="form-control" ng-model="membStainCycle" value="-1" id="membStainCycle" placeholder="Enter Membrane Stain Cycle" name="membStainCycle" required>
         </div>
 
-        <div class="form-group">
-        <input type="submit" id="submit" value="Start segmentation" class="btn btn-primary btn-lg" />
+        <div class="form-group" >
+            <input type="submit" id="submit" value="Start segmentation" class="btn btn-primary btn-lg" data-loading-text="Running segmentation" />
+            <script type="text/javascript">
+                $('#segm').submit(function() {
+                    var $this = $('#submit');
+                    $this.button('loading');
+                    setTimeout(function() {
+                        $this.button('reset');
+                    }, 20000);
+                });
+            </script>
         </div>
 
-        <!--<div id="myProgress">-->
-            <!--<div id="myBar"></div>-->
-        <!--</div>-->
-        <div class="progress"> <div id = "pro" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div> </div>
+        <div class="progress">
+            <div id = "pro" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                <font color="black"> 0% segmented </font>
+            </div>
+        </div>
 
 
         <script type="text/javascript">
-            <!--function showProgress() {-->
-                <!--var elem = document.getElementById("myBar");-->
-                <!--var width = 1;-->
-                <!--var id = setInterval(frame, 3000);-->
-                <!--function frame() {-->
-                    <!--if (width >= 100) {-->
-                        <!--clearInterval(id);-->
-                    <!--} else {-->
-                        <!--width++;-->
-                        <!--elem.style.width = width + '%';-->
-                    <!--}-->
-                <!--}-->
-            <!--}-->
-            $(document).ready(function() {
-            $('#segm').submit(function(e) {
-            if($('#userImage').val()) {
-            e.preventDefault();
-            $('#loader-icon').show();
-            $(this).ajaxSubmit({
-            target:   '#targetLayer',
-            beforeSubmit: function() {
-            $("#pro").width('0%');
-            },
-            uploadProgress: function (event, position, total, percentComplete){
-            $("#pro").width(percentComplete + '%');
-            $("#pro").html('<div id="progress-bar-status">' + percentComplete +' %</div>')
-            },
-            success:function (){
-            $('#loader-icon').hide();
-            },
-            resetForm: true
-            });
-            return false;
+            function showProgress() {
+                setInterval(function(){
+                    jQuery.ajax({
+                        type: "GET",
+                        url: "/getProgress",
+                        success: function(result) {
+                            $('#pro').css("width", result + '%');
+                            $('#pro').html(result + "% segmented");
+                        },
+                    });
+                }, 5000);
             }
-            });
-
-            });
         </script>
     </form>
 </div>

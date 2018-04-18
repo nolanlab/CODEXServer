@@ -1,18 +1,13 @@
 package org.nolanlab.CODEX.segm.segmserver;
 
-import com.opencsv.CSVReader;
-import ij.IJ;
 import ij.ImageJ;
 import ij.ImagePlus;
 import ij.ImageStack;
-import ij.gui.ImageRoi;
-import ij.gui.Overlay;
 import ij.plugin.Duplicator;
 import ij.plugin.FolderOpener;
 import ij.plugin.HyperStackConverter;
 import ij.plugin.ImageCalculator;
 import ij.process.ImageProcessor;
-import org.apache.commons.io.FilenameUtils;
 import org.nolanlab.CODEX.segm.segmclient.SegConfigParam;
 import org.nolanlab.CODEX.uploader.uplclient.Experiment;
 import org.nolanlab.CODEX.utils.codexhelper.ExperimentHelper;
@@ -24,10 +19,12 @@ import java.util.*;
 
 public class RunSegm {
 
-    private static SegmHelper segmHelper = new SegmHelper();
-    private static String timestamp;
+    private SegmHelper segmHelper = new SegmHelper();
+    private String timestamp;
+    private int totalFolder;
+    private int progress = 0;
 
-    public static void runSeg(SegConfigParam segParam, String ts) throws Exception {
+    public void runSeg(SegConfigParam segParam, String ts) throws Exception {
         timestamp = ts;
 
         File rootDir = segParam.getRootDir();
@@ -38,6 +35,7 @@ public class RunSegm {
         File tilesDir = new File(rootDir + File.separator + "tiles");
         File[] regFolder = tilesDir.listFiles(r -> r.isDirectory() && r.getName().startsWith("reg"));
         if (regFolder != null && regFolder.length != 0) {
+            totalFolder = regFolder.length;
             File expJSON = new File(segParam.getRootDir().getParentFile() + File.separator + "Experiment.json");
             ExperimentHelper experimentHelper = new ExperimentHelper();
             Experiment exp = experimentHelper.loadFromJSON(expJSON);
@@ -48,6 +46,10 @@ public class RunSegm {
                     ImagePlus imp = fo.openFolder(regFolder[reg].getPath());
                     ImagePlus hyp = HyperStackConverter.toHyperStack(imp, exp.getChannel_names().length, exp.getNum_z_planes(), exp.getNum_cycles(), "default", "Composite");
                     segmentTiff(hyp, 0, segParam);
+                    this.setProgress(calculateProgress(reg+1));
+                    if(reg+1 == totalFolder) {
+                        progress=0;
+                    }
                 }
             }
         }
@@ -58,7 +60,7 @@ public class RunSegm {
         segmHelper.saveToFile(segParam, segJsonOut);
     }
 
-    private static void segmentTiff(ImagePlus imp, int tile, SegConfigParam segConfigParam) throws Exception {
+    private void segmentTiff(ImagePlus imp, int tile, SegConfigParam segConfigParam) throws Exception {
         Duplicator dup = new Duplicator();
         int j;
         int i;
@@ -351,47 +353,24 @@ public class RunSegm {
         }
     }
 
-    /**
-     * Find the best focus folder and apply the overlay to the input tif file
-     * @param bestFocusDir
-     * @param overlays
-     */
-    private static void applyBestFocusOverlay(File bestFocusDir, File currTiff, BufferedImage [] overlays) throws IllegalStateException {
+    private int calculateProgress(int reg) {
+        int percentCompleted = reg;
+        return percentCompleted*100/totalFolder;
+    }
 
-        File[] lst = bestFocusDir.listFiles(tif -> (FilenameUtils.removeExtension(tif.getName()).contains(currTiff.getName())) & (tif.getName().endsWith(".tif") || tif.getName().endsWith(".tiff")));
+    public int getProgress() {
+        return progress;
+    }
 
-        if(lst.length != 1) {
-            throw new IllegalStateException("Found more than one or less than one match for file:" + Arrays.toString(lst));
-        }
+    public void setProgress(int progress) {
+        this.progress = progress;
+    }
 
-        File bestFocusFile = lst[0];
+    public int getTotalFolder() {
+        return totalFolder;
+    }
 
-        int tifLastZIndex = bestFocusFile.getName().lastIndexOf("Z");
-        String tifZString = bestFocusFile.getName().substring(tifLastZIndex + 1, tifLastZIndex + 3);
-        int tifZIndex = Integer.parseInt(tifZString);
-
-        BufferedImage bi  = overlays[tifZIndex-1];
-
-        ImagePlus impBf = IJ.openImage(bestFocusFile.getAbsolutePath());
-        if(impBf.getOverlay() != null) {
-            impBf.getOverlay().clear();
-        }
-
-        Overlay overlay = new Overlay();
-
-        ImagePlus im2 = new ImagePlus(bestFocusFile.getName(), bi);
-        ImageRoi imgRoi = new ImageRoi(0, 0, im2.getProcessor());
-        imgRoi.setNonScalable(true);
-        imgRoi.setZeroTransparent(true);
-        imgRoi.setOpacity(1.0);
-        //imgRoi.setPosition(0, zIndex, 0);
-        overlay.add(imgRoi);
-        impBf.setOverlay(overlay);
-
-        File segOutBf = new File(bestFocusDir.getParentFile().getAbsolutePath()+File.separator+"segm"+File.separator+"segm_"+timestamp+File.separator+"bestFocus");
-        if(!segOutBf.exists() && !segOutBf.isDirectory()) {
-            segOutBf.mkdir();
-        }
-        IJ.saveAsTiff(impBf, segOutBf + File.separator + impBf.getTitle());
+    public void setTotalFolder(int totalFolder) {
+        this.totalFolder = totalFolder;
     }
 }
