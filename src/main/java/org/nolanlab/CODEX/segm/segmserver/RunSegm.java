@@ -354,8 +354,7 @@ public class RunSegm {
     }
 
     private int calculateProgress(int reg) {
-        int percentCompleted = reg;
-        return percentCompleted*100/totalFolder;
+        return reg*100/totalFolder;
     }
 
     public int getProgress() {

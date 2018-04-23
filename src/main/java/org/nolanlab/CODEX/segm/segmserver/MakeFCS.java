@@ -9,7 +9,7 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import net.sf.flowcyt.gp.module.csv2fcs.CSV2FCSApp;
 import org.nolanlab.CODEX.segm.segmclient.SegConfigParam;
-import org.nolanlab.CODEX.utils.codexhelper.SegmHelper;
+import org.nolanlab.CODEX.utils.codexhelper.ExperimentHelper;
 
 import java.io.*;
 import java.util.*;
@@ -24,6 +24,7 @@ public class MakeFCS {
     private static File fcsDir;
     private static File compDir;
     private static File uncompDir;
+    private static ExperimentHelper expHelper = new ExperimentHelper();
 
     public static void callMakeFcs(SegConfigParam segParam, String ts) throws Exception {
 
@@ -143,7 +144,15 @@ public class MakeFCS {
         String s  = "-InputFile:\"" + outPath + "\"";
         System.out.println(s);
 
-        CSV2FCSApp.main(new String[]{s});
+        //CSV2FCSApp.main(new String[]{s});
+        String libConfig = System.getProperty("user.dir") + File.separator + "lib";
+        ProcessBuilder pb = new ProcessBuilder("java", "-jar", libConfig + File.separator + "csv2fcs.jar", s);
+        Process p = pb.start();
+        pb.redirectErrorStream(true);
+        System.out.println("Starting process: " + pb.command().toString());
+        expHelper.waitAndPrint(p);
+
+        System.out.println("MakeFCS done");
     }
 
     private static double[] getVecForCycle(String[] line, int offset, int numReadoutChannels, int cycle) {

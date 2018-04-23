@@ -104,7 +104,7 @@ public class SegmController {
             logger.print("delaunay graph: "+ segParam.isDelaunay_graph());
 
 
-            String timestamp = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Timestamp(System.currentTimeMillis()));
+            String timestamp = new SimpleDateFormat("MM-dd-yyyy-HH-mm-ss").format(new Timestamp(System.currentTimeMillis()));
             logger.print("Starting Main Segmentation...");
 
             try {
@@ -124,20 +124,22 @@ public class SegmController {
             }
             logger.print("ConcatenateResults done");
 
-            logger.print("Starting MakeFCS");
             try {
                 MakeFCS.callMakeFcs(segParam, timestamp);
             }
             catch (Exception e) {
                 return e.getMessage();
             }
-            logger.print("MakeFCS done");
 
-            File checkOut = new File(segParam.getRootDir() + File.separator + "segm" + File.separator + "segm_" + timestamp);
-            File[] txtFiles = checkOut.listFiles(t -> checkOut.getName().endsWith(".txt"));
-            File[] fcsFiles = checkOut.listFiles(t -> checkOut.getName().endsWith(".fcs"));
-            if(txtFiles.length == 0 || fcsFiles.length == 0) {
-                return "Segmentation didn't run properly. Either fcs files/txt files were not created!";
+            File checkOut = new File(segParam.getRootDir() + File.separator + "segm" + File.separator + "segm_" + timestamp + File.separator + "FCS");
+            for(File compUncomp : checkOut.listFiles()) {
+                if(compUncomp.isDirectory()) {
+                    File[] txtFiles = compUncomp.listFiles(t -> t.getName().endsWith(".txt"));
+                    File[] fcsFiles = compUncomp.listFiles(f -> f.getName().endsWith(".fcs"));
+                    if (txtFiles.length == 0 || fcsFiles.length == 0) {
+                        return "Segmentation didn't run properly. Either fcs files/txt files were not created!";
+                    }
+                }
             }
             return "Segmentation Ran Successfully! Check the processed folder at: " + user+File.separator+exp+File.separator;
         });

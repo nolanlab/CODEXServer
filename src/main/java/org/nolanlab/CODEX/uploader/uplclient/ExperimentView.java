@@ -1019,7 +1019,7 @@ public class ExperimentView extends javax.swing.JPanel {
         ArrayList<Integer> cycNumbers = new ArrayList<Integer>();
         if (dir != null) {
             for (File cyc : dir.listFiles()) {
-                if (cyc != null && cyc.isDirectory() && cyc.getName().startsWith("Cyc")) {
+                if (cyc != null && cyc.isDirectory() && cyc.getName().toLowerCase().startsWith("cyc")) {
                     String cycFolderName = cyc.getName();
                     String[] cycVal = cycFolderName.split("_");
                     cycNumbers.add(Integer.parseInt(cycVal[0].replaceAll("[^0-9]", "")));
@@ -1163,7 +1163,7 @@ public class ExperimentView extends javax.swing.JPanel {
         boolean flag = false;
         if(dir != null) {
             for (File cyc : dir.listFiles()) {
-                if (cyc != null && cyc.isDirectory() && cyc.getName().startsWith("Cyc")) {
+                if (cyc != null && cyc.isDirectory() && cyc.getName().toLowerCase().startsWith("cyc")) {
                     val3.setSelectedItem(MicroscopeTypeEnum.KEYENCE);
                     flag = true;
                     break;
@@ -1222,12 +1222,15 @@ public class ExperimentView extends javax.swing.JPanel {
         //Calculate tile overlap
         if(dir != null) {
             for (File cyc : dir.listFiles()) {
-                if (cyc != null && cyc.isDirectory()) {
-                    File[] cycFiles = cyc.listFiles(tif->tif != null && !tif.isDirectory() && tif.getName().endsWith(".tif"));
-                    ImagePlus imp = IJ.openImage(cycFiles[0].getAbsolutePath());
-                    val19.setText(String.valueOf(exp.getTile_overlap_X() * 100/imp.getWidth()));
-                    val20.setText(String.valueOf(exp.getTile_overlap_Y() * 100/imp.getHeight()));
-                    break;
+                if (cyc != null && cyc.isDirectory() && cyc.getName().toLowerCase().startsWith("cyc")) {
+                    for(File file : cyc.listFiles()) {
+                        if(!file.isDirectory() && (file.getName().endsWith(".tif")||file.getName().endsWith(".tiff"))){
+                            ImagePlus imp = IJ.openImage(file.getAbsolutePath());
+                            val19.setText(String.valueOf(exp.getTile_overlap_X() * 100/imp.getWidth()));
+                            val20.setText(String.valueOf(exp.getTile_overlap_Y() * 100/imp.getHeight()));
+                            break;
+                        }
+                    }
                 }
             }
         }

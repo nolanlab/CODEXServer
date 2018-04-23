@@ -257,26 +257,20 @@ public class Driffta {
                     reorderedHyp = backgroundSubtraction(hyp, exp, baseDir, channelNames);
                 }
 
-                if (reorderedHyp == null) {
-                    String outStr = outDir + File.separator + FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width()));
-                    File out = new File(outStr);
-                    if (!out.exists()) {
-                        out.mkdir();
-                    }
-
-                    log("Saving result file as image sequence: " + outStr);
-                    hyp.setTitle(FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width())));
-                    IJ.run(hyp, "Image Sequence... ", "format=TIFF save=" + outStr);
+                String outStr = outDir + File.separator + FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width()));
+                File out = new File(outStr);
+                if (!out.exists()) {
+                    out.mkdir();
                 }
-                else {
-                    String outStr = outDir + File.separator + FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width()));
-                    File out = new File(outStr);
-                    if (!out.exists()) {
-                        out.mkdir();
-                    }
-                    log("Saving result file as image sequence: " + outStr);
+                log("Saving result file as image sequence: " + outStr);
+
+                if (reorderedHyp != null) {
                     reorderedHyp.setTitle(FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width())));
                     IJ.run(reorderedHyp, "Image Sequence... ", "format=TIFF save=" + outStr);
+                }
+                else {
+                    hyp.setTitle(FilenameUtils.removeExtension(expHelper.getDestStackFileName(exp.getTiling_mode(), tile, region, exp.getRegion_width())));
+                    IJ.run(hyp, "Image Sequence... ", "format=TIFF save=" + outStr);
                 }
 
                 //Create the bestFocus.json and store the imagesequence as key and the bestFocus z slice as value as a map in the json.
