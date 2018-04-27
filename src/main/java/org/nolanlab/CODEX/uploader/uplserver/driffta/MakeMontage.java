@@ -61,8 +61,8 @@ public class MakeMontage {
             File[] tifFiles = seqFiles[i].listFiles(tif -> tif.getName().endsWith("tif") || tif.getName().endsWith("tiff"));
             for(File aTifFile : tifFiles) {
                 int z = tileVsBf.get(seqFiles[i].getName());
-                //Search for _Z instead
-                String zNumberStr = aTifFile.getName().substring(21, 24);
+                int zPos = aTifFile.getName().lastIndexOf("z");
+                String zNumberStr = aTifFile.getName().substring(zPos+1, zPos+4);
                 int zNumber = zNumberStr == null ? 0 : Integer.parseInt(zNumberStr);
                 if(zNumber != z) {
                     continue;
@@ -160,7 +160,8 @@ public class MakeMontage {
                 ((CompositeImage) hyp).setLuts(new LUT[]{LUT.createLutFromColor(Color.WHITE), LUT.createLutFromColor(Color.RED), LUT.createLutFromColor(Color.GREEN), LUT.createLutFromColor(new Color(0, 70, 255))});
             }
 
-            IJ.saveAsTiff(hyp, mkMonDir.getAbsolutePath() + File.separator + regname + "_montage.tif");
+             //IJ.saveAsTiff(hyp, mkMonDir.getAbsolutePath() + File.separator + regname + "_montage.tif");
+             IJ.run(hyp, "Image Sequence... ", "format=TIFF save=" + mkMonDir.getAbsolutePath() + File.separator + regname + "_montage.tif");
         });
     }
 

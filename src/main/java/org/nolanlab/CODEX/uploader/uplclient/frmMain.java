@@ -535,12 +535,7 @@ public class frmMain extends JFrame {
 
                 log("Verifying names...");
 
-                for (File f : dir.listFiles(new FileFilter() {
-                    @Override
-                    public boolean accept(File file) {
-                        return file.isDirectory() && file.getName().startsWith("Cyc");
-                    }
-                })) {
+                for (File f : dir.listFiles(file -> file.isDirectory() && file.getName().startsWith("Cyc"))) {
                     String name = f.getName();
                     String[] s = name.split("_");
                     if (s.length > 2) {
@@ -583,6 +578,8 @@ public class frmMain extends JFrame {
                 UploaderClient mkMontage = new UploaderClient("http://localhost:4567", "makeMontage?user="+exp.getUserName()+"&exp="+exp.getName()+"&fc=2");
                 log(mkMontage.getResponse());
                 log("Make Montage Done");
+
+                log("All processes done!");
 
             } catch (Exception e) {
                 System.out.println(new Error(e));

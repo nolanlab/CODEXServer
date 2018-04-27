@@ -7,7 +7,6 @@ package org.nolanlab.CODEX.segm.segmserver;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
-import net.sf.flowcyt.gp.module.csv2fcs.CSV2FCSApp;
 import org.nolanlab.CODEX.segm.segmclient.SegConfigParam;
 import org.nolanlab.CODEX.utils.codexhelper.ExperimentHelper;
 
@@ -144,7 +143,6 @@ public class MakeFCS {
         String s  = "-InputFile:\"" + outPath + "\"";
         System.out.println(s);
 
-        //CSV2FCSApp.main(new String[]{s});
         String libConfig = System.getProperty("user.dir") + File.separator + "lib";
         ProcessBuilder pb = new ProcessBuilder("java", "-jar", libConfig + File.separator + "csv2fcs.jar", s);
         Process p = pb.start();

@@ -157,11 +157,11 @@
                     success: function(msg) {
                         $("#exp").get(0).options.length = 0;
                         $("#exp").get(0).options[0] = new Option("Choose experiment", "-1");
-                    $.each(msg, function(i,obj)
-                    {
-                        var div_data="<option value="+obj+">"+obj+"</option>";
-                        $(div_data).appendTo('#exp');
-                    });
+                        $.each(msg, function(i,obj)
+                        {
+                            var div_data="<option value="+obj+">"+obj+"</option>";
+                            $(div_data).appendTo('#exp');
+                        });
                     }
                 });
             }

@@ -1049,19 +1049,9 @@ public class ExperimentView extends javax.swing.JPanel {
         boolean containsBcf = false;
         boolean hasHandE = false;
 
-        for (File f : dir.listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File pathname) {
-                return pathname.isDirectory() && pathname.getName().startsWith("Cyc");
-            }
-        })) {
+        for (File f : dir.listFiles(pathname -> pathname.isDirectory() && pathname.getName().startsWith("Cyc"))) {
             if (!containsBcf) {
-                containsBcf = f.listFiles(new FileFilter() {
-                    @Override
-                    public boolean accept(File pathname) {
-                        return pathname.getName().endsWith(".bcf");
-                    }
-                }).length > 0;
+                containsBcf = f.listFiles(pathname -> pathname.getName().endsWith(".bcf")).length > 0;
             }
             if (containsBcf) {
                 val3.setSelectedItem(MicroscopeTypeEnum.KEYENCE);
@@ -1076,19 +1066,9 @@ public class ExperimentView extends javax.swing.JPanel {
 
         int[][] occup_table = new int[maxCycle][maxRegion];
 
-        for (File f : dir.listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File pathname) {
-                return pathname.isDirectory() && pathname.getName().startsWith("Cyc");
-            }
-        })) {
+        for (File f : dir.listFiles(pathname -> pathname.isDirectory() && pathname.getName().startsWith("Cyc"))) {
             if (!containsBcf) {
-                containsBcf = f.listFiles(new FileFilter() {
-                    @Override
-                    public boolean accept(File pathname) {
-                        return pathname.getName().endsWith(".bcf");
-                    }
-                }).length > 0;
+                containsBcf = f.listFiles(pathname -> pathname.getName().endsWith(".bcf")).length > 0;
             }
             String[] s = f.getName().split("_");
             int cyc = Integer.parseInt(s[0].substring(3));
@@ -1107,12 +1087,7 @@ public class ExperimentView extends javax.swing.JPanel {
             }
         }
 
-        File[] hef = dir.listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File pathname) {
-                return pathname.isDirectory() && pathname.getName().startsWith("HandE");
-            }
-        });
+        File[] hef = dir.listFiles(pathname -> pathname.isDirectory() && pathname.getName().startsWith("HandE"));
 
         hasHandE = (hef.length == maxRegion)&&hef.length> 0;
 
@@ -1301,13 +1276,7 @@ public class ExperimentView extends javax.swing.JPanel {
 
         File dir = new File(txtDir.getText());
 
-        File[] subdir = dir.listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File pathname) {
-                return pathname.isDirectory() && pathname.getName().startsWith("Cyc");
-            }
-
-        });
+        File[] subdir = dir.listFiles(pathname -> pathname.isDirectory() && pathname.getName().startsWith("Cyc"));
 
         String projName = "p";
 
@@ -1317,12 +1286,7 @@ public class ExperimentView extends javax.swing.JPanel {
                 throw new IllegalStateException("Directory" + dir.getAbsolutePath() + " does not contain a single folder starting with 'Cyc...'");
             }
 
-            File[] bcf = subdir[0].listFiles(new FileFilter() {
-                @Override
-                public boolean accept(File pathname) {
-                    return pathname.getName().endsWith(".bcf");
-                }
-            });
+            File[] bcf = subdir[0].listFiles(pathname -> pathname.getName().endsWith(".bcf"));
 
             if (bcf.length == 0) {
                 throw new IllegalStateException("Microscope is set to Keyence but there is no .bcf file in the directory ");

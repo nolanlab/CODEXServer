@@ -105,9 +105,6 @@ public class Driffta {
                 for (int i = 0; i < deconvIterations.length; i++) {
                     for (int j = 0; j < deconvIterations[i].length; j++) {
                         if (i == 0 || j != exp.getDrift_comp_channel() - 1) {
-                            if (i == exp.getNum_cycles() - 1 && exp.isHandEstain()) {
-                                continue;
-                            }
                             deconvIterations[i][j] = 25;
                         }
                     }

@@ -141,6 +141,7 @@ public class SegmController {
                     }
                 }
             }
+            //response.redirect("html");
             return "Segmentation Ran Successfully! Check the processed folder at: " + user+File.separator+exp+File.separator;
         });
     }
