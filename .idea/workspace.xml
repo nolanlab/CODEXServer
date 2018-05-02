@@ -1,87 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45e5079a-e5d1-45b9-ba1d-a69d99572c7c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/BestFocusHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/js/hi.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/ProcessingOptions.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/ProcessingOptionsView.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/ProcessingOptionsHelper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/public/jar/CODEX-1.0-jar-with-dependencies.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/segm/segmserver/RunSegm$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ProcessingOptions.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ProcessingOptionsView.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain$6$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain$7.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplserver/driffta/Driffta$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplserver/driffta/Driffta$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/utils/codexhelper/ProcessingOptionsHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/public/jar/CODEX-1.0-jar-with-dependencies.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/segm/segmserver/ConcatenateResults.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/segm/segmserver/ConcatenateResults.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/segm/segmserver/MakeFCS$1.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/segm/segmserver/MakeFCS$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/segm/segmserver/MakeFCS$DP.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/segm/segmserver/MakeFCS$DP.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/segm/segmserver/MakeFCS.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/segm/segmserver/MakeFCS.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/segm/segmserver/RunSegm.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/segm/segmserver/RunSegm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/segm/segmserver/SegmController.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/segm/segmserver/SegmController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/Experiment.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/Experiment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$1.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$10.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$11.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$12.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$12.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$13.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$13.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$14.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$14.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$15.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$15.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$16.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$16.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$17.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$17.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$18.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$18.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$19.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$19.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$2.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$20.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$20.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$21.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$21.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$22.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$22.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$23.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$23.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$24.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$24.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$25.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$25.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$26.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$26.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$27.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$27.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$28.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$28.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$29.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$29.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$3.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$4.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$5.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$6.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$7.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$8.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$9.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView$9.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/ExperimentView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain$1.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain$2.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain$3.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain$4.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain$5.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain$6.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplclient/frmMain.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplserver/UploaderController.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplserver/UploaderController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplserver/driffta/BestFocus.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplserver/driffta/BestFocus.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplserver/driffta/Driffta.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplserver/driffta/Driffta.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplserver/driffta/MakeMontage.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/uploader/uplserver/driffta/MakeMontage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/viewer/viewerserver/CodexImageServer.class" afterPath="$PROJECT_DIR$/target/classes/org/nolanlab/CODEX/viewer/viewerserver/CodexImageServer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/ConcatenateResults.java" afterPath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/ConcatenateResults.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/MakeFCS.java" afterPath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/MakeFCS.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/RunSegm.java" afterPath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/RunSegm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/SegmController.java" afterPath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/SegmController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/Experiment.java" afterPath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/Experiment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/ExperimentView.java" afterPath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/ExperimentView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/frmMain.java" afterPath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/frmMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/UploaderController.java" afterPath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/UploaderController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/BestFocus.java" afterPath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/BestFocus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/Driffta.java" afterPath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/Driffta.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/MakeMontage.java" afterPath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/MakeMontage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/viewer/viewerserver/CodexImageServer.java" afterPath="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/viewer/viewerserver/CodexImageServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/public/html/segm.html" afterPath="$PROJECT_DIR$/src/main/resources/public/html/segm.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/public/html/segm.html" afterPath="$PROJECT_DIR$/target/classes/public/html/segm.html" />
+    <list default="true" id="45e5079a-e5d1-45b9-ba1d-a69d99572c7c" name="Default" comment="JS library inside target">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CODEXServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CODEXServer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/html/processor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/images/cinqueterre.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/js/hi.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/html/processor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/js/hi.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -93,85 +20,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/CODEXServer$ImageServer.coverage" NAME="ImageServer Coverage Results" MODIFIED="1522869567504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/gate$Main.coverage" NAME="Main Coverage Results" MODIFIED="1519624331513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/CODEXServer$ImageServer.coverage" NAME="ImageServer Coverage Results" MODIFIED="1522869567504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="frmMain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/frmMain.java">
+      <file leaf-file-name="GatingController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/GatingController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1210">
-              <caret line="707" column="0" lean-forward="false" selection-start-line="707" selection-start-column="0" selection-end-line="707" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2169#2199#0" expanded="true" />
-                <element signature="e#2204#2293#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UploaderController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/UploaderController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="31" column="52" lean-forward="false" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExperimentView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/ExperimentView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="703">
-              <caret line="995" column="0" lean-forward="false" selection-start-line="995" selection-start-column="0" selection-end-line="995" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Experiment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/Experiment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4263">
-              <caret line="333" column="5" lean-forward="false" selection-start-line="333" selection-start-column="5" selection-end-line="333" selection-end-column="5" />
-              <folding>
-                <element signature="e#9140#9141#0" expanded="true" />
-                <element signature="e#9186#9187#0" expanded="true" />
-                <element signature="e#9383#9384#0" expanded="true" />
-                <element signature="e#9427#9428#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UploaderClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/UploaderClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BestFocus.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/BestFocus.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="647">
-              <caret line="194" column="37" lean-forward="false" selection-start-line="194" selection-start-column="37" selection-end-line="194" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MakeMontage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/MakeMontage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="204" column="9" lean-forward="false" selection-start-line="204" selection-start-column="9" selection-end-line="204" selection-end-column="9" />
+            <state relative-caret-position="917">
+              <caret line="98" column="38" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -179,30 +37,50 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Driffta.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/Driffta.java">
+      <file leaf-file-name="GateParamForJson.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/GateParamForJson.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="40" column="38" lean-forward="false" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+            <state relative-caret-position="544">
+              <caret line="32" column="19" lean-forward="true" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1523921626830" expanded="false" signature="17757:17768" ph=" { " />
-                <marker date="1523921626830" expanded="false" signature="17784:17790" ph=" }" />
+                <element signature="e#241#242#0" expanded="true" />
+                <element signature="e#272#273#0" expanded="true" />
+                <element signature="e#320#321#0" expanded="true" />
+                <element signature="e#360#361#0" expanded="true" />
+                <element signature="e#231#232#0" expanded="true" />
+                <element signature="e#255#256#0" expanded="true" />
+                <element signature="e#288#289#0" expanded="true" />
+                <element signature="e#314#315#0" expanded="true" />
+                <element signature="e#342#343#0" expanded="true" />
+                <element signature="e#366#367#0" expanded="true" />
+                <element signature="e#400#401#0" expanded="true" />
+                <element signature="e#426#427#0" expanded="true" />
+                <element signature="e#454#455#0" expanded="true" />
+                <element signature="e#478#479#0" expanded="true" />
+                <element signature="e#512#513#0" expanded="true" />
+                <element signature="e#538#539#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BestFocusHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/BestFocusHelper.java">
+      <file leaf-file-name="GateFilter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/GateFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+            <state relative-caret-position="524">
+              <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#579#580#0" expanded="true" />
+                <element signature="e#610#611#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SegmController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/SegmController.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -217,36 +95,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>String server</find>
-      <find>best focu</find>
-      <find>File</find>
-      <find>imp</find>
-      <find>concate</find>
-      <find>concatenator</find>
-      <find>Hyper</find>
-      <find>dup.run</find>
-      <find>not removed</find>
-      <find>bestfocus.js</find>
-      <find>uploader_cache</find>
-      <find>jLabel7</find>
-      <find>use blin</find>
-      <find>.addgap</find>
-      <find>isExportImgSeq</find>
-      <find>image seq</find>
-      <find>optional</find>
-      <find>user</find>
-      <find>optionalPan</find>
-      <find>exp.set</find>
-      <find>jLabel17</find>
-      <find>txt</find>
-      <find>horizontalGr</find>
-      <find>PROCESSING</find>
-      <find>po.</find>
-      <find>processingOptions.json</find>
-      <find>poHe</find>
-      <find>processing</find>
-      <find>processingOption</find>
-      <find>experiment.json</find>
+      <find>images</find>
+      <find>serverConfig</find>
+      <find>Make Mont</find>
+      <find>FileFilter</find>
+      <find>filename</find>
+      <find>imagecon</find>
+      <find>show</find>
+      <find>#x</find>
+      <find>fcs</find>
+      <find>input type=&quot;sub</find>
+      <find>form</find>
+      <find>&lt;form</find>
+      <find>FCS</find>
+      <find>href</find>
+      <find>save</find>
+      <find>imgForGate</find>
+      <find>/getIm</find>
+      <find>getImage</find>
+      <find>server</find>
+      <find>PHOTO\</find>
+      <find>PHOTO</find>
+      <find>#photo</find>
+      <find>gatemodal</find>
+      <find>.read</find>
+      <find>coordinatesVal</find>
+      <find>_images</find>
+      <find>photo</find>
+      <find>/ge</find>
+      <find>/getImage</find>
+      <find>cinqueterre</find>
     </findStrings>
     <replaceStrings>
       <replace>RemoteImage5D</replace>
@@ -261,6 +139,9 @@
       <replace>exp.getFocussing_offset()</replace>
       <replace>+&quot;segm&quot;+File.separator+&quot;segm_&quot;</replace>
       <replace>exp.</replace>
+      <replace>cyc.getName().toLowerCase().startsWith(&quot;cyc&quot;)</replace>
+      <replace>configuration</replace>
+      <replace>gateName</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Nikolay\IdeaProjects\codexnetviewer\src\main\java\org\nolanlab\CODEX\uploader</dir>
@@ -270,40 +151,9 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/logger.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/SegmMain.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/userver/driffta/BestFocus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/TileObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/userver/Uploader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/ConcatenateResults.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/userver/driffta/MakeMontage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segclient/SegmMain.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/ExperimentHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/microscope/Zeiss.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uclient/ExperimentView.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/microscope/Microscope.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/userver/driffta/Driffta.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmclient/SegmClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uclient/UploaderClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/viewer/viewerclient/ClientTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/viewer/viewerclient/ClientTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/processexperiment/ExperimentHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/processexperiment/ProcessingOptionsHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/processexperiment/ProcessingOptions.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/experimentprocessing/ProcessingOptions.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/UploaderClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/experimentprocessing/Experiment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/experimentprocessing/ProcessingOptionsHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/RequestHandler.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/ProfileAverager.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/Point3D.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/SegmentedObject.java" />
@@ -312,25 +162,57 @@
         <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmclient/SegmMain.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/experimentprocessing/SegmHelper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/public/js/hi.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/public/html/segm.html" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/ConcatenateResults.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/MakeFCS.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/viewer/viewerserver/CodexImageServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/SegmController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/BestFocus.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/UploaderController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/RunSegm.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/ProcessingOptions.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/ProcessingOptionsView.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/ProcessingOptionsHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/Experiment.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/BestFocusHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/frmMain.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/Driffta.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/ExperimentView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/BestFocus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/ConcatenateResults.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/SegmHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/Lol.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/microscope/Keyence.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/MakeFCS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/SegmController.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/MakeMontage.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/public/html/segm.html" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/PopulateXYForConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/PopulateGatingConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/public/scripts/ASD.js" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/Driffta.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/CreateShapeJson.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/GatingConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/frmMain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/ExperimentView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/clustering/clsserver/ClusteringConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/clustering/clsserver/ClusterConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/clustering/clsserver/ClusteringController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/public/html/clustering.html" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/ColorMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingclient/Config.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingclient/ColorMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingclient/GateFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingclient/BiaxialPlot.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/BiaxialPlot.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/Config.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/GateFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/RunSegm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/ShapeForGate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/GateParamForJson.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/GatingHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/GatingController.java" />
+        <option value="$PROJECT_DIR$/target/classes/public/html/gate.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/public/html/gate.html" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -339,30 +221,24 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="1249" />
-    <option name="height" value="867" />
+    <option name="x" value="-8" />
+    <option name="width" value="1250" />
+    <option name="height" value="868" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
+    <navigator proportions="" version="1">
+      <autoscrollToSource ProjectPane="true" />
       <autoscrollFromSource ProjectPane="true" />
-      <sortByType />
-      <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -403,7 +279,17 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="CODEX" type="462c0819:PsiDirectoryNode" />
-              <item name="segm" type="462c0819:PsiDirectoryNode" />
+              <item name="gating" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CODEXServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="CODEX" type="462c0819:PsiDirectoryNode" />
+              <item name="gating" type="462c0819:PsiDirectoryNode" />
+              <item name="gatingserver" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
@@ -413,47 +299,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="CODEX" type="462c0819:PsiDirectoryNode" />
               <item name="segm" type="462c0819:PsiDirectoryNode" />
-              <item name="segmserver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CODEXServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="CODEX" type="462c0819:PsiDirectoryNode" />
-              <item name="uploader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CODEXServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="CODEX" type="462c0819:PsiDirectoryNode" />
-              <item name="uploader" type="462c0819:PsiDirectoryNode" />
-              <item name="uplclient" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CODEXServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="CODEX" type="462c0819:PsiDirectoryNode" />
-              <item name="uploader" type="462c0819:PsiDirectoryNode" />
-              <item name="uplserver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CODEXServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="CODEX" type="462c0819:PsiDirectoryNode" />
-              <item name="uploader" type="462c0819:PsiDirectoryNode" />
-              <item name="uplserver" type="462c0819:PsiDirectoryNode" />
-              <item name="driffta" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
@@ -479,46 +324,6 @@
               <item name="CODEXServer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="CODEX" type="462c0819:PsiDirectoryNode" />
-              <item name="viewer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CODEXServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="CODEX" type="462c0819:PsiDirectoryNode" />
-              <item name="viewer" type="462c0819:PsiDirectoryNode" />
-              <item name="viewerclient" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CODEXServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="CODEX" type="462c0819:PsiDirectoryNode" />
-              <item name="viewer" type="462c0819:PsiDirectoryNode" />
-              <item name="viewerclient" type="462c0819:PsiDirectoryNode" />
-              <item name="i5d" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CODEXServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="CODEX" type="462c0819:PsiDirectoryNode" />
-              <item name="viewer" type="462c0819:PsiDirectoryNode" />
-              <item name="viewerserver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CODEXServer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -538,189 +343,59 @@
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="javax" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="javax" type="462c0819:PsiDirectoryNode" />
-              <item name="swing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.google.code.gson:gson:2.7" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.google.code.gson:gson:2.7" type="70bed36:NamedLibraryElementNode" />
-              <item name="gson-2.7.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.google.code.gson:gson:2.7" type="70bed36:NamedLibraryElementNode" />
-              <item name="gson-2.7.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="gson" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.sparkjava:spark-core:2.7.0" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.sparkjava:spark-core:2.7.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="spark-core-2.7.0.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.sparkjava:spark-core:2.7.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="spark-core-2.7.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="spark" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: com.sparkjava:spark-core:2.7.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="spark-core-2.7.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="spark" type="462c0819:PsiDirectoryNode" />
-              <item name="matching" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: commons-io:commons-io:2.5" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: commons-io:commons-io:2.5" type="70bed36:NamedLibraryElementNode" />
-              <item name="commons-io-2.5.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: commons-io:commons-io:2.5" type="70bed36:NamedLibraryElementNode" />
-              <item name="commons-io-2.5.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: net.imagej:ij:1.51g" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: net.imagej:ij:1.51g" type="70bed36:NamedLibraryElementNode" />
-              <item name="ij-1.51g.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: net.imagej:ij:1.51g" type="70bed36:NamedLibraryElementNode" />
-              <item name="ij-1.51g.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="ij" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.scijava:scijava-common:2.53.0" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.scijava:scijava-common:2.53.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="scijava-common-2.53.0.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.scijava:scijava-common:2.53.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="scijava-common-2.53.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="scijava" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CODEXServer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.scijava:scijava-common:2.53.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="scijava-common-2.53.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="scijava" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="472" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="471" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="472" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="471" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="196" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="227" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="303" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1160" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Nikolay\IdeaProjects\CODEXServer\target\classes\public\images" />
       <recent name="C:\Users\Nikolay\IdeaProjects\CODEXServer\src\main\resources\public\images" />
-      <recent name="C:\Users\Nikolay\IdeaProjects\codexnetviewer\src\main\java\org\nolanlab\CODEX\utils" />
-      <recent name="C:\Users\Nikolay\IdeaProjects\codexnetviewer\src\main\java\org\nolanlab\CODEX\segm" />
-      <recent name="C:\Users\Nikolay\IdeaProjects\codexnetviewer\target" />
+      <recent name="C:\Users\Nikolay\IdeaProjects\CODEXServer\src\main\resources\public" />
+      <recent name="C:\Users\Nikolay\IdeaProjects\CODEXServer\src\main\java\org\nolanlab\CODEX\segm\segmserver" />
+      <recent name="C:\Users\Nikolay Samusik\OneDrive\DEV\codexnetviewer\src\main\java\org\nolanlab\codexnetviewer\client" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.nolanlab.CODEX.segm.segmserver" />
       <recent name="org.nolanlab.CODEX.utils" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Nikolay\IdeaProjects\CODEXServer\src\main\java\org\nolanlab\CODEX\segm\segmserver" />
-      <recent name="C:\Users\Nikolay Samusik\OneDrive\DEV\codexnetviewer\src\main\java\org\nolanlab\codexnetviewer\client" />
-      <recent name="C:\Users\Nikolay Samusik\OneDrive\DEV\gate\src\main" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Nikolay\IdeaProjects\CODEXServer\target\classes\public\html" />
+      <recent name="C:\Users\Nikolay\IdeaProjects\CODEXServer\src\main\resources\public\images" />
+      <recent name="C:\Users\Nikolay\IdeaProjects\codexnetviewer\src\main\java\org\nolanlab\CODEX\utils" />
+      <recent name="C:\Users\Nikolay\IdeaProjects\codexnetviewer\src\main\java\org\nolanlab\CODEX\segm" />
+      <recent name="C:\Users\Nikolay\IdeaProjects\codexnetviewer\target" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -735,126 +410,93 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.UploaderClient">
-    <configuration name="ImageServer" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="org.nolanlab.CODEX.viewer.viewerserver.CodexImageServer" />
-      <option name="VM_PARAMETERS" value="-Xmx16G" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;C:/CODEX_server_home&quot;" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+  <component name="RunManager" selected="Application.ClusteringServer">
+    <configuration name="ClusteringServer" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.nolanlab.CODEX.clustering.clsserver.ClusteringController" />
       <module name="CODEXServer" />
-      <envs />
+      <option name="PROGRAM_PARAMETERS" value="&quot;C:\CODEX_server_home&quot;" />
+      <option name="WORKING_DIRECTORY" value="file://C:/CODEX_server_home" />
+    </configuration>
+    <configuration name="GatingServer" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.nolanlab.CODEX.gating.gatingserver.GatingController" />
+      <module name="CODEXServer" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;C:\CODEX_server_home&quot;" />
+      <option name="WORKING_DIRECTORY" value="file://C:/CODEX_server_home" />
+    </configuration>
+    <configuration name="ImageServer" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.nolanlab.CODEX.viewer.viewerserver.CodexImageServer" />
+      <module name="CODEXServer" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;C:/CODEX_server_home&quot;" />
+      <option name="VM_PARAMETERS" value="-Xmx16G" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     </configuration>
     <configuration name="SegmServer" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.nolanlab.CODEX.segm.segmserver.SegmController" />
+      <module name="CODEXServer" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;C:\CODEX_server_home&quot;" />
+      <option name="WORKING_DIRECTORY" value="file://C:/CODEX_server_home" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.nolanlab.CODEX.segm.segmserver.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="org.nolanlab.CODEX.segm.segmserver.SegmController" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="&quot;C:\CODEX_server_home&quot;" />
-      <option name="WORKING_DIRECTORY" value="file://C:/CODEX_server_home" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CODEXServer" />
-      <envs />
     </configuration>
     <configuration name="UploaderClient" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.nolanlab.CODEX.uploader.uplclient.frmMain" />
+      <module name="CODEXServer" />
+      <option name="WORKING_DIRECTORY" value="file://C:/CODEX_server_home" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.nolanlab.codexnetviewer.CODEXServer.upload.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="org.nolanlab.CODEX.uploader.uplclient.frmMain" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://C:/CODEX_server_home" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CODEXServer" />
-      <envs />
     </configuration>
     <configuration name="UploaderServer" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.nolanlab.CODEX.uploader.uplserver.UploaderController" />
+      <module name="CODEXServer" />
+      <option name="VM_PARAMETERS" value="-Xmx64G" />
+      <option name="WORKING_DIRECTORY" value="file://C:/CODEX_server_home" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.nolanlab.CODEX.uploader.uplserver.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="org.nolanlab.CODEX.uploader.uplserver.UploaderController" />
-      <option name="VM_PARAMETERS" value="-Xmx64G" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://C:/CODEX_server_home" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CODEXServer" />
-      <envs />
     </configuration>
     <configuration name="ViewerClient" type="Application" factoryName="Application" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.nolanlab.CODEX.viewer.viewerclient.ClientTest" />
+      <module name="CODEXServer" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.nolanlab.codexnetviewer.client.i5d.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="org.nolanlab.CODEX.viewer.viewerclient.ClientTest" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CODEXServer" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="file://$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="org.datacyt.Main" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="JarApplication" factoryName="JAR Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <envs />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.datacyt.Main" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" />
@@ -864,42 +506,26 @@
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <envs />
       <patterns />
     </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <option name="ALTERNATIVE_JRE_PATH" />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
+      <module name="gate" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="gate" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
@@ -912,36 +538,52 @@
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
       <option name="USE_DEFAULT_REPORTERS" value="false" />
       <option name="PROPERTIES_FILE" />
-      <envs />
       <properties />
       <listeners />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.ImageServer" />
-      <item index="1" class="java.lang.String" itemvalue="Application.ViewerClient" />
-      <item index="2" class="java.lang.String" itemvalue="Application.UploaderClient" />
-      <item index="3" class="java.lang.String" itemvalue="Application.UploaderServer" />
-      <item index="4" class="java.lang.String" itemvalue="Application.SegmServer" />
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="file://$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.ImageServer" />
+      <item itemvalue="Application.GatingServer" />
+      <item itemvalue="Application.ClusteringServer" />
+      <item itemvalue="Application.ViewerClient" />
+      <item itemvalue="Application.UploaderClient" />
+      <item itemvalue="Application.UploaderServer" />
+      <item itemvalue="Application.SegmServer" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.UploaderClient" />
-        <item index="1" class="java.lang.String" itemvalue="Application.UploaderServer" />
-        <item index="2" class="java.lang.String" itemvalue="Application.SegmServer" />
-        <item index="3" class="java.lang.String" itemvalue="Application.ViewerClient" />
+      <list>
+        <item itemvalue="Application.SegmServer" />
+        <item itemvalue="Application.UploaderClient" />
+        <item itemvalue="Application.UploaderServer" />
+        <item itemvalue="Application.ViewerClient" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -953,6 +595,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1509942300824</updated>
+      <workItem from="1524780178592" duration="65599000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1510813078157</created>
@@ -968,43 +611,141 @@
       <option name="project" value="LOCAL" />
       <updated>1522975746694</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Removed useless comments.">
+      <created>1523926101012</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1523926101012</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Adding a png logo image.">
+      <created>1523989220849</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1523989220849</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Removed comments related to export as tiff feature.">
+      <created>1523990536833</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1523990536833</updated>
+    </task>
+    <task id="LOCAL-00006" summary="included comment">
+      <created>1523991291948</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1523991291948</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changes in segmentation to accommodate the new server folder structure.">
+      <created>1524001642717</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1524001642717</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Changes in segmentation to accommodate the new server folder structure.">
+      <created>1524005909840</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1524005909840</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Segmentation changes to get the real-time progress bar updates from the server.">
+      <created>1524081463041</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1524081463041</updated>
+    </task>
+    <task id="LOCAL-00010" summary="CSV2FCS.jar is now a part of lib folder in server.">
+      <created>1524522872433</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1524522872434</updated>
+    </task>
+    <task id="LOCAL-00011" summary="1. Gating-&#10;Created new files for gating - both html and server-side&#10;2. Some minor changes to uploader and segmentation">
+      <created>1524870016476</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1524870016476</updated>
+    </task>
+    <task id="LOCAL-00012" summary="JS library files for gating - rectangular selectiong of image">
+      <created>1524870154877</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1524870154877</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Gating changes to support plots">
+      <created>1525221325109</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1525221325109</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Changed tilenumber param input">
+      <created>1525221380959</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1525221380959</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Changes to support plotting UI and UX.">
+      <created>1525301120230</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1525301120230</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="65599000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="2578" height="1408" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1894654" sideWeight="0.496875" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27672955" sideWeight="0.503125" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.3286638" sideWeight="0.49858013" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18474843" sideWeight="0.496875" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19296876" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278302" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3380503" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24949454" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974634" sideWeight="0.49858013" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" x="91" y="91" width="2294" height="1258" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.478125" weight="0.18657453" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51660156" side_tool="true" weight="0.25074038" />
+      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49375" weight="0.3286638" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48339844" visible="true" weight="0.25074038" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2109375" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32675222" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49166667" weight="0.34846988" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24949454" />
+      <window_info anchor="right" id="Coverage" order="7" side_tool="true" weight="0.3296875" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection Results" order="11" sideWeight="0.49858013" weight="0.32974634" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" x="91" y="91" width="2294" height="1258" id="Documentation" order="6" type="FLOATING" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
@@ -1016,10 +757,21 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/CODEX_netviewer" />
       <path value="$PROJECT_DIR$/CODEXServer" />
-      <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="initial" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial" />
+    <MESSAGE value="Removed useless comments." />
+    <MESSAGE value="Adding a png logo image." />
+    <MESSAGE value="Removed comments related to export as tiff feature." />
+    <MESSAGE value="included comment" />
+    <MESSAGE value="Changes in segmentation to accommodate the new server folder structure." />
+    <MESSAGE value="Segmentation changes to get the real-time progress bar updates from the server." />
+    <MESSAGE value="CSV2FCS.jar is now a part of lib folder in server." />
+    <MESSAGE value="1. Gating-&#10;Created new files for gating - both html and server-side&#10;2. Some minor changes to uploader and segmentation" />
+    <MESSAGE value="JS library files for gating - rectangular selectiong of image" />
+    <MESSAGE value="Gating changes to support plots" />
+    <MESSAGE value="Changed tilenumber param input" />
+    <MESSAGE value="Changes to support plotting UI and UX." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes to support plotting UI and UX." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1056,39 +808,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/MakeFCS.java</url>
-          <line>30</line>
-          <properties />
-          <option name="timeStamp" value="130" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/MakeFCS.java</url>
-          <line>44</line>
-          <properties />
-          <option name="timeStamp" value="131" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/MakeFCS.java</url>
-          <line>154</line>
-          <properties />
-          <option name="timeStamp" value="132" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/MakeFCS.java</url>
-          <line>85</line>
+          <line>78</line>
           <properties />
           <option name="timeStamp" value="133" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/MakeFCS.java</url>
-          <line>121</line>
-          <properties />
-          <option name="timeStamp" value="136" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/MakeFCS.java</url>
-          <line>151</line>
-          <properties />
-          <option name="timeStamp" value="137" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/csv2fcs/csv2fcs/4.0/csv2fcs-4.0.jar!/net/sf/flowcyt/gp/module/csv2fcs/CSV2FCSApp.class</url>
@@ -1097,440 +819,509 @@
           <option name="timeStamp" value="138" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/UploaderController.java</url>
-          <line>55</line>
+          <url>jar://$MAVEN_REPOSITORY$/csv2fcs/csv2fcs/4.0/csv2fcs-4.0.jar!/net/sf/flowcyt/gp/module/csv2fcs/CSV2FCSApp.class</url>
+          <line>25</line>
           <properties />
-          <option name="timeStamp" value="183" />
+          <option name="timeStamp" value="238" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/MakeFCS.java</url>
-          <line>99</line>
+          <url>jar://$MAVEN_REPOSITORY$/csv2fcs/csv2fcs/4.0/csv2fcs-4.0.jar!/net/sf/flowcyt/gp/module/csv2fcs/CSV2FCSApp.class</url>
+          <line>30</line>
           <properties />
-          <option name="timeStamp" value="195" />
+          <option name="timeStamp" value="239" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/MakeMontage.java</url>
-          <line>45</line>
+          <url>jar://$MAVEN_REPOSITORY$/csv2fcs/csv2fcs/4.0/csv2fcs-4.0.jar!/net/sf/flowcyt/gp/module/csv2fcs/ConversionConfig.class</url>
+          <line>203</line>
           <properties />
-          <option name="timeStamp" value="225" />
+          <option name="timeStamp" value="240" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/MakeMontage.java</url>
-          <line>35</line>
+          <url>jar://$MAVEN_REPOSITORY$/csv2fcs/csv2fcs/4.0/csv2fcs-4.0.jar!/net/sf/flowcyt/gp/module/csv2fcs/CSV2FCSApp.class</url>
+          <line>43</line>
           <properties />
-          <option name="timeStamp" value="226" />
+          <option name="timeStamp" value="241" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/MakeMontage.java</url>
-          <line>83</line>
+          <url>jar://$MAVEN_REPOSITORY$/csv2fcs/csv2fcs/4.0/csv2fcs-4.0.jar!/net/sf/flowcyt/gp/module/csv2fcs/ConversionConfig.class</url>
+          <line>96</line>
           <properties />
-          <option name="timeStamp" value="228" />
+          <option name="timeStamp" value="242" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/MakeMontage.java</url>
-          <line>196</line>
+          <url>jar://$MAVEN_REPOSITORY$/csv2fcs/csv2fcs/4.0/csv2fcs-4.0.jar!/net/sf/flowcyt/gp/module/csv2fcs/ConversionConfig.class</url>
+          <line>235</line>
           <properties />
-          <option name="timeStamp" value="229" />
+          <option name="timeStamp" value="245" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/csv2fcs/csv2fcs/4.0/csv2fcs-4.0.jar!/net/sf/flowcyt/gp/module/csv2fcs/CSV2FCSApp.class</url>
+          <line>49</line>
+          <properties />
+          <option name="timeStamp" value="246" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/GatingHelper.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="306" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="230" />
+      <option name="time" value="308" />
     </breakpoint-manager>
-    <watches-manager />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>fcsDir.listFiles(t -&gt; t.getName().endsWith(&quot;.fcs&quot;));</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>fcsDir.listFiles(</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>File[] fc = fcsDir.listFiles(t-&gt;t.getName().endsWith(&quot;.fcs&quot;))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>fcsDir.listFiles(t-&gt;t.getName().endsWith(&quot;.fcs&quot;))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>fcsDir</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>fcsDir.list()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>colNames.get(i)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>arrYJson.get(0)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>coordinates.replace(&quot;[{&quot;, &quot;&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmclient/SegmClient.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/RegionImageWriter.java" />
-    <entry file="file://$PROJECT_DIR$/CODEXServer.iml">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.7.0/spark-core-2.7.0.jar!/spark/http/matching/Routes.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="88" lean-forward="true" selection-start-line="13" selection-start-column="88" selection-end-line="13" selection-end-column="88" />
+        <state relative-caret-position="287">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/Neighborhood.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/csv2fcs/csv2fcs/4.0/csv2fcs-4.0.jar!/net/sf/flowcyt/gp/module/csv2fcs/CSV2FCSApp.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="17" column="2" lean-forward="true" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
-          <folding />
+        <state relative-caret-position="567">
+          <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/Segmentation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="256" column="9" lean-forward="true" selection-start-line="256" selection-start-column="9" selection-end-line="256" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.7.0/spark-core-2.7.0.jar!/spark/ResponseTransformerRouteImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/SessionIdentifierGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/clustering/clsserver/ClusteringController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/clustering/clsclient/ClusteringParam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/js/hi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/html/processor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmclient/SegConfigParam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/viewer/viewerclient/i5d/RemoteImageStack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/Deconvolve_mult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/OptionPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/DefaultOptionPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/OkayMockOptionPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/RequestHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="579">
-          <caret line="39" column="25" lean-forward="false" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/scijava/scijava-common/2.53.0/scijava-common-2.53.0.jar!/org/scijava/util/FileUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="28" column="19" lean-forward="false" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.5/commons-io-2.5.jar!/org/apache/commons/io/Java7Support.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.5/commons-io-2.5.jar!/org/apache/commons/io/FileUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="1375" column="0" lean-forward="false" selection-start-line="1375" selection-start-column="0" selection-end-line="1375" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/io/File.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="471" column="18" lean-forward="false" selection-start-line="471" selection-start-column="18" selection-end-line="471" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/ConcatenateResults.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="107" column="86" lean-forward="false" selection-start-line="107" selection-start-column="86" selection-end-line="107" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/MakeFCS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="108" column="108" lean-forward="true" selection-start-line="108" selection-start-column="108" selection-end-line="108" selection-end-column="108" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/viewer/viewerclient/CODEX_Viewer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-630">
-          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/viewer/viewerserver/CodexImageServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/html/segm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2226">
-          <caret line="29" column="74" lean-forward="true" selection-start-line="29" selection-start-column="74" selection-end-line="29" selection-end-column="74" />
+        <state relative-caret-position="612">
+          <caret line="199" column="16" lean-forward="true" selection-start-line="199" selection-start-column="16" selection-end-line="199" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/ExperimentHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="34" column="45" lean-forward="true" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
-          <folding />
+        <state relative-caret-position="2919">
+          <caret line="178" column="16" selection-start-line="178" selection-start-column="16" selection-end-line="178" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.7.0/spark-core-2.7.0.jar!/spark/http/matching/Routes.class">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/scripts/ASD.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.7/gson-2.7.jar!/com/google/gson/Gson.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="502" column="17" lean-forward="false" selection-start-line="502" selection-start-column="17" selection-end-line="502" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/net/imagej/ij/1.51g/ij-1.51g.jar!/ij/ImagePlus.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="152" column="11" lean-forward="false" selection-start-line="152" selection-start-column="11" selection-end-line="152" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/RunSegm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="375" column="68" lean-forward="true" selection-start-line="375" selection-start-column="68" selection-end-line="375" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/TileObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/SegmController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="52" column="74" lean-forward="true" selection-start-line="52" selection-start-column="74" selection-end-line="52" selection-end-column="74" />
-          <folding>
-            <element signature="e#619#620#0" expanded="false" />
-            <element signature="e#675#676#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/javax/swing/JCheckBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="94" column="11" lean-forward="false" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="11" />
-          <folding>
-            <element signature="e#2700#2701#0" expanded="false" />
-            <element signature="e#2739#2740#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/ProcessingOptions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="33" column="61" lean-forward="true" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/ProcessingOptionsView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/ProcessingOptionsHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="32" column="20" lean-forward="true" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/SegmHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/BestFocusHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1134">
+          <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/UploaderClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding />
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/newXMLDocument.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/Point2D.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="712">
-          <caret line="295" column="5" lean-forward="false" selection-start-line="295" selection-start-column="5" selection-end-line="295" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="340">
+          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/frmMain.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.7/gson-2.7.jar!/com/google/gson/JsonObject.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1210">
-          <caret line="707" column="0" lean-forward="false" selection-start-line="707" selection-start-column="0" selection-end-line="707" selection-end-column="0" />
+        <state relative-caret-position="153">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/awt/Rectangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="210" column="11" selection-start-line="210" selection-start-column="11" selection-end-line="210" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/awt/Polygon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="125" column="11" selection-start-line="125" selection-start-column="11" selection-end-line="125" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/BestFocusHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" column="5" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="28" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/SegmHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/Driffta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-629">
+          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/MakeFCS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
           <folding>
+            <element signature="e#0#6759#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#2169#2199#0" expanded="true" />
-            <element signature="e#2204#2293#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/BestFocus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="647">
-          <caret line="194" column="37" lean-forward="false" selection-start-line="194" selection-start-column="37" selection-end-line="194" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/Experiment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4263">
-          <caret line="333" column="5" lean-forward="false" selection-start-line="333" selection-start-column="5" selection-end-line="333" selection-end-column="5" />
-          <folding>
-            <element signature="e#9140#9141#0" expanded="true" />
-            <element signature="e#9186#9187#0" expanded="true" />
-            <element signature="e#9383#9384#0" expanded="true" />
-            <element signature="e#9427#9428#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/MakeMontage.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-629">
+          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/frmMain.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
-          <caret line="204" column="9" lean-forward="false" selection-start-line="204" selection-start-column="9" selection-end-line="204" selection-end-column="9" />
+          <caret line="536" lean-forward="true" selection-start-line="536" selection-end-line="536" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/ExperimentView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="1287" lean-forward="true" selection-start-line="1287" selection-end-line="1287" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/UploaderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="28" column="80" lean-forward="true" selection-start-line="28" selection-start-column="80" selection-end-line="28" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/scripts/jquery.imgareaselect.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/clustering/clsserver/ClusteringController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/clustering/clsserver/ClusterConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="122" column="26" selection-start-line="122" selection-start-column="23" selection-end-line="122" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/BiaxialPlot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2255#2256#0" expanded="true" />
+            <element signature="e#2284#2285#0" expanded="true" />
+            <element signature="e#2338#2339#0" expanded="true" />
+            <element signature="e#2374#2375#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/ColorMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#120#121#0" expanded="true" />
+            <element signature="e#186#187#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.7.0/spark-core-2.7.0.jar!/spark/RouteImpl.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="31" column="55" lean-forward="true" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
-          <folding />
+        <state relative-caret-position="442">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplclient/ExperimentView.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.7.0/spark-core-2.7.0.jar!/spark/http/matching/MatcherFilter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="995" column="0" lean-forward="false" selection-start-line="995" selection-start-column="0" selection-end-line="995" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="215">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/driffta/Driffta.java">
+    <entry file="file://$PROJECT_DIR$/target/classes/public/images/plot.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/Config.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="40" column="38" lean-forward="false" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+        <state relative-caret-position="119">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/GatingConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1523921626830" expanded="false" signature="17757:17768" ph=" { " />
-            <marker date="1523921626830" expanded="false" signature="17784:17790" ph=" }" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/uploader/uplserver/UploaderController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/ConcatenateResults.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="31" column="52" lean-forward="false" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
-          <folding />
+        <state relative-caret-position="-85">
+          <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/io/File.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="2023" selection-start-line="2023" selection-end-line="2023" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/newXMLDocument.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/RunSegm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2022">
+          <caret line="5625" column="4" selection-start-line="5625" selection-start-column="4" selection-end-line="5625" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/clustering/clsclient/ClusteringParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.7.0/spark-core-2.7.0.jar!/spark/ResponseTransformerRouteImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/ShapeForGate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/utils/codexhelper/GatingHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/segm/segmserver/SegmController.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/classes/public/images/cinqueterre.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/images/biaxial1022936965769355207.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/GateFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#579#580#0" expanded="true" />
+            <element signature="e#610#611#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/classes/public/html/processor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="28" lean-forward="true" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/GateParamForJson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="19" lean-forward="true" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+          <folding>
+            <element signature="e#241#242#0" expanded="true" />
+            <element signature="e#272#273#0" expanded="true" />
+            <element signature="e#320#321#0" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#231#232#0" expanded="true" />
+            <element signature="e#255#256#0" expanded="true" />
+            <element signature="e#288#289#0" expanded="true" />
+            <element signature="e#314#315#0" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+            <element signature="e#366#367#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#454#455#0" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/classes/public/html/gate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/html/gate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#5022#5029#1" expanded="true" />
+            <marker date="1525300978903" expanded="true" signature="15865:16937" ph="..." />
+            <marker date="1525300978903" expanded="true" signature="15904:16056" ph="..." />
+            <marker date="1525300978903" expanded="true" signature="16013:16025" ph="..." />
+            <marker date="1525300978903" expanded="true" signature="16092:16919" ph="..." />
+            <marker date="1525300978903" expanded="true" signature="16128:16389" ph="..." />
+            <marker date="1525300978903" expanded="true" signature="16304:16371" ph="..." />
+            <marker date="1525300978903" expanded="true" signature="16425:16686" ph="..." />
+            <marker date="1525300978903" expanded="true" signature="16601:16668" ph="..." />
+            <marker date="1525300978903" expanded="true" signature="16746:16760" ph="..." />
+            <marker date="1525300978903" expanded="true" signature="16761:16901" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/html/clustering.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="72" column="52" lean-forward="true" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/html/processor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/classes/public/html/clustering.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/html/segm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="171" column="9" lean-forward="true" selection-start-line="171" selection-start-column="9" selection-end-line="171" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/nolanlab/CODEX/gating/gatingserver/GatingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="917">
+          <caret line="98" column="38" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
