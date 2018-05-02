@@ -26,6 +26,7 @@ public class RunSegm {
 
     public void runSeg(SegConfigParam segParam, String ts) throws Exception {
         timestamp = ts;
+        int tile=0;
 
         File rootDir = segParam.getRootDir();
         if (!rootDir.exists()) {
@@ -45,7 +46,7 @@ public class RunSegm {
                     fo.openAsVirtualStack(true);
                     ImagePlus imp = fo.openFolder(regFolder[reg].getPath());
                     ImagePlus hyp = HyperStackConverter.toHyperStack(imp, exp.getChannel_names().length, exp.getNum_z_planes(), exp.getNum_cycles(), "default", "Composite");
-                    segmentTiff(hyp, 0, segParam);
+                    segmentTiff(hyp, ++tile, segParam);
                     this.setProgress(calculateProgress(reg+1));
                     if(reg+1 == totalFolder) {
                         progress=0;
@@ -64,7 +65,7 @@ public class RunSegm {
         Duplicator dup = new Duplicator();
         int j;
         int i;
-        ++tile;
+
 
         System.out.print("\nprocessing image seq: " + imp.getTitle() + "\n");
 
