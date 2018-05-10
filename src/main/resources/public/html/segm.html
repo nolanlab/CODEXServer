@@ -25,102 +25,219 @@
 <body>
 
 <div class="container" style="width:600px;">
-    <h2 align="center">Segmentation Details</h2><br />
+    <h2 align="center">Segmentation</h2><br />
+    <div class="panel panel-primary">
+        <div class="panel-heading"><i>Segmentation configuration parameters</i></div>
+        <div class="panel-body">
+            <!--<form id ="segm" method="POST" action="http://localhost:4567/runSegm" onsubmit="showProgress()">-->
+                <div class="form-group">
+                    <label for="userVal">Select User:</label>
+                    <select name="userVal" id="userVal" class="form-control input" placeholder="Choose user" required autofocus>
+                        <option value="">Choose user</option>
+                    </select>
+                </div>
 
-    <form id ="segm" method="POST" action="http://localhost:4567/runSegm" onsubmit="showProgress()">
+                <div class="form-group">
+                    <label for="expVal">Enter experiment name:</label>
+                    <select name="expVal" id="expVal" class="form-control input" placeholder="Choose experiment" required autofocus>
+                        <option value="">Choose experiment</option>
+                    </select>
+                </div>
 
-        <div class="form-group">
-            <label for="user">Select User:</label>
-            <select name="user" id="user" class="form-control input" placeholder="Choose user" required>
-                <option value="">Choose user</option>
-            </select>
-        </div>
+                <div class="form-group">
+                    <label for="radiusVal">Radius:</label>
+                    <input type="number" class="form-control" ng-model="radiusVal" value="5" id="radiusVal" placeholder="Enter radius" name="radiusVal" required autofocus>
+                </div>
 
-        <div class="form-group">
-            <label for="exp">Enter experiment name:</label>
-            <select name="exp" id="exp" class="form-control input" placeholder="Choose experiment" required>
-                <option value="">Choose experiment</option>
-            </select>
-        </div>
+                <div class="form-group">
+                    <label for="maxCutOffVal">Max Cutoff:</label>
+                    <input type="number" class="form-control" ng-model="maxCutOffVal" value="0.99" step="0.01" id="maxCutOffVal" placeholder="Enter Max CutOff" name="maxCutOffVal" required autofocus>
+                </div>
 
-        <div class="form-group">
-            <label for="radius">Radius:</label>
-            <input type="number" class="form-control" ng-model="radius" value="5" id="radius" placeholder="Enter radius" name="radius" required>
-        </div>
+                <div class="form-group">
+                    <label for="minCutOffVal">Min Cutoff:</label>
+                    <input type="number" class="form-control" ng-model="minCutOffVal" value="0.05" step="0.01" id="minCutOffVal" placeholder="Enter Min CutOff" name="minCutOffVal" required autofocus>
+                </div>
 
-        <div class="form-group">
-            <label for="maxCutOff">Max Cutoff:</label>
-            <input type="number" class="form-control" ng-model="maxCutOff" value="0.99" step="0.01" id="maxCutOff" placeholder="Enter Max CutOff" name="maxCutOff" required>
-        </div>
+                <div class="form-group">
+                    <label for="relativeCutOffVal">Relative Cutoff:</label>
+                    <input type="number" class="form-control" ng-model="relativeCutOffVal" value="0.2" step="0.1" id="relativeCutOffVal" placeholder="Enter Relative CutOff" name="relativeCutOffVal" required autofocus>
+                </div>
 
-        <div class="form-group">
-            <label for="minCutOff">Min Cutoff:</label>
-            <input type="number" class="form-control" ng-model="minCutOff" value="0.05" step="0.01" id="minCutOff" placeholder="Enter Min CutOff" name="minCutOff" required>
-        </div>
+                <div class="form-group">
+                    <label for="nucStainChannelVal">Nuclear Stain Channel:</label>
+                    <input type="number" class="form-control" ng-model="nucStainChannelVal" value="1" id="nucStainChannelVal" placeholder="Enter Nuclear Stain Channel" name="nucStainChannelVal" required autofocus>
+                </div>
 
-        <div class="form-group">
-            <label for="relativeCutOff">Relative Cutoff:</label>
-            <input type="number" class="form-control" ng-model="relativeCutOff" value="0.2" step="0.1" id="relativeCutOff" placeholder="Enter Relative CutOff" name="relativeCutOff" required>
-        </div>
+                <div class="form-group">
+                    <label for="nucStainCycleVal">Nuclear Stain Cycle:</label>
+                    <input type="number" class="form-control" ng-model="nucStainCycleVal" value="1" id="nucStainCycleVal" placeholder="Enter Nuclear Stain Cycle" name="nucStainCycleVal" required autofocus>
+                </div>
 
-        <div class="form-group">
-            <label for="nucStainChannel">Nuclear Stain Channel:</label>
-            <input type="number" class="form-control" ng-model="nucStainChannel" value="1" id="nucStainChannel" placeholder="Enter Nuclear Stain Channel" name="nucStainChannel" required>
-        </div>
+                <div class="form-group">
+                    <label for="membStainChannelVal">Membrane Stain Channel:</label>
+                    <input type="number" class="form-control" ng-model="membStainChannelVal" value="1" id="membStainChannelVal" placeholder="Enter Membrane Stain Channel" name="membStainChannelVal" required autofocus>
+                </div>
 
-        <div class="form-group">
-            <label for="nucStainCycle">Nuclear Stain Cycle:</label>
-            <input type="number" class="form-control" ng-model="nucStainCycle" value="1" id="nucStainCycle" placeholder="Enter Nuclear Stain Cycle" name="nucStainCycle" required>
-        </div>
+                <div class="form-group">
+                    <label for="membStainCycleVal">Membrane Stain Cycle:</label>
+                    <input type="number" class="form-control" ng-model="membStainCycleVal" value="-1" id="membStainCycleVal" placeholder="Enter Membrane Stain Cycle" name="membStainCycleVal" required autofocus>
+                </div>
 
-        <div class="form-group">
-            <label for="membStainChannel">Membrane Stain Channel:</label>
-            <input type="number" class="form-control" ng-model="membStainChannel" value="1" id="membStainChannel" placeholder="Enter Membrane Stain Channel" name="membStainChannel" required>
-        </div>
+                <div class="form-group" >
+                    <!--<input type="submit" id="submit" value="Start segmentation" class="btn btn-primary btn-lg center-block" data-loading-text="Running segmentation" />-->
+                    <button type="button" id="startSegm" class="btn btn-primary btn-lg center-block" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Running segmentation">Start Segmentation</button>
 
-        <div class="form-group">
-            <label for="membStainCycle">Membrane Stain Cycle:</label>
-            <input type="number" class="form-control" ng-model="membStainCycle" value="-1" id="membStainCycle" placeholder="Enter Membrane Stain Cycle" name="membStainCycle" required>
-        </div>
+                </div>
 
-        <div class="form-group" >
-            <input type="submit" id="submit" value="Start segmentation" class="btn btn-primary btn-lg" data-loading-text="Running segmentation" />
-            <script type="text/javascript">
-                $('#segm').submit(function() {
-                    var $this = $('#submit');
-                    $this.button('loading');
-                    setTimeout(function() {
-                        $this.button('reset');
-                    }, 20000);
-                });
-            </script>
-        </div>
+                <div class="progress">
+                    <div id = "pro" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                        <font color="black"> 0% segmented </font>
+                    </div>
+                </div>
 
-        <div class="progress">
-            <div id = "pro" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                <font color="black"> 0% segmented </font>
+
+                <div class="modal fade" id="segmModal" tabindex="-1" role="dialog" aria-labelledby="gateModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="segmModalLabel"><b>Save segmentation run</b></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <form id ="segm" method="POST" action="http://localhost:4567/runSegm" onsubmit="showProgress()">
+                                <input type="hidden" id="user" name="user" />
+                                <input type="hidden" id="exp" name="exp" />
+                                <input type="hidden" id="radius" name="radius" />
+                                <input type="hidden" id="maxCutOff" name="maxCutOff" />
+                                <input type="hidden" id="minCutOff" name="minCutOff" />
+                                <input type="hidden" id="relativeCutOff" name="relativeCutOff" />
+                                <input type="hidden" id="nucStainChannel" name="nucStainChannel" />
+                                <input type="hidden" id="nucStainCycle" name="nucStainCycle" />
+                                <input type="hidden" id="membStainChannel" name="membStainChannel" />
+                                <input type="hidden" id="membStainCycle" name="membStainCycle" />
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="segmName" class="col-form-label">Enter name for the segmentation run</label>
+                                        <input type="text" class="form-control" id="segmName" name="segmName" required autofocus>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit" class="btn btn-primary" value="Run" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            <div class="modal fade" id="inpCheckmodal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><b>Field missing</b></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Check if input user and/or experiment is selected.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
+                <script type="text/javascript">
+                    function showProgress() {
+                        setInterval(function(){
+                            jQuery.ajax({
+                                type: "GET",
+                                url: "/getProgress",
+                                success: function(result) {
+                                    $('#pro').css("width", result + '%');
+                                    $('#pro').html(result + "% segmented");
+                                },
+                            });
+                        }, 5000);
+                    }
+                </script>
+            <!--</form>-->
         </div>
-
-
-        <script type="text/javascript">
-            function showProgress() {
-                setInterval(function(){
-                    jQuery.ajax({
-                        type: "GET",
-                        url: "/getProgress",
-                        success: function(result) {
-                            $('#pro').css("width", result + '%');
-                            $('#pro').html(result + "% segmented");
-                        },
-                    });
-                }, 5000);
-            }
-        </script>
-    </form>
+    </div>
 </div>
 </body>
 
+<script type="text/javascript">
+
+    var userParam;
+    var expParam;
+    var radiusParam;
+    var maxCutoffParam;
+    var minCutoffParam;
+    var relativeCutoffParam;
+    var nucStainChannelParam;
+    var nucStainCycleParam;
+    var membStainChannelParam;
+    var membStainCycleParam;
+
+    $('#segm').submit(function() {
+        jQuery(function($) {
+            $('#segmModal').modal('toggle');
+        });
+        var $this = $('#startSegm');
+        $this.button('loading');
+        setTimeout(function() {
+            $this.button('reset');
+        }, 20000);
+    });
+</script>
+
+<script type="text/javascript">
+    $('#startSegm').click(function() {
+            if($("#userVal").val() == -1 || $("#expVal").val() == -1) {
+                jQuery(function ($) {
+                    $('#inpCheckmodal').modal('show');
+                });
+            }
+            else {
+                userParam = $("#userVal").val();
+                expParam = $("#expVal").val();
+                radiusParam = $("#radiusVal").val();
+                maxCutoffParam = $("#maxCutOffVal").val();
+                minCutoffParam = $("#minCutOffVal").val();
+                relativeCutoffParam = $("#relativeCutOffVal").val();
+                nucStainChannelParam = $("#nucStainChannelVal").val();
+                nucStainCycleParam = $("#nucStainCycleVal").val();
+                membStainChannelParam = $("#membStainChannelVal").val();
+                membStainCycleParam = $("#membStainCycleVal").val();
+                jQuery(function ($) {
+                    $('#segmModal').modal('show');
+                });
+            }
+    });
+</script>
+
+<script type="text/javascript">
+    $("#segm").submit(function() {
+        $("#user").val(userParam);
+        $("#exp").val(expParam);
+        $("#radius").val(radiusParam);
+        $("#maxCutOff").val(maxCutoffParam);
+        $("#minCutOff").val(minCutoffParam);
+        $("#relativeCutOff").val(relativeCutoffParam);
+        $("#nucStainChannel").val(nucStainChannelParam);
+        $("#nucStainCycle").val(nucStainCycleParam);
+        $("#membStainChannel").val(membStainChannelParam);
+        $("#membStainCycle").val(membStainCycleParam);
+    });
+</script>
 
 <script type="text/javascript" language="javascript">
         $().ready(function() {
@@ -130,14 +247,14 @@
                 contentType: "application/json",
                 dataType: "json",
                 success: function(msg) {
-                    $("#user").get(0).options.length = 0;
-                    $("#user").get(0).options[0] = new Option("Choose user", "-1");
+                    $("#userVal").get(0).options.length = 0;
+                    $("#userVal").get(0).options[0] = new Option("Choose user", "-1");
                     $.each(msg, function(i,obj)
                     {
                         var div_data="<option value="+obj+">"+obj+"</option>";
-                        $(div_data).appendTo('#user');
+                        $(div_data).appendTo('#userVal');
                     });
-                    $("#user").bind("change", function() {
+                    $("#userVal").bind("change", function() {
                         GetExperiments($(this).val());
                     });
                 },
@@ -148,26 +265,26 @@
         });
         function GetExperiments(user) {
             if(user != -1) {
-                $("#exp").get(0).options.length = 0;
+                $("#expVal").get(0).options.length = 0;
                 $.ajax({
                     type: "GET",
                     url: "/getExperimentList?user="+user,
                     contentType: "application/json",
                     dataType: "json",
                     success: function(msg) {
-                        $("#exp").get(0).options.length = 0;
-                        $("#exp").get(0).options[0] = new Option("Choose experiment", "-1");
+                        $("#expVal").get(0).options.length = 0;
+                        $("#expVal").get(0).options[0] = new Option("Choose experiment", "-1");
                         $.each(msg, function(i,obj)
                         {
                             var div_data="<option value="+obj+">"+obj+"</option>";
-                            $(div_data).appendTo('#exp');
+                            $(div_data).appendTo('#expVal');
                         });
                     }
                 });
             }
             else {
-                $("#exp").get(0).options.length = 0;
-                $("#exp").get(0).options[0] = new Option("Choose experiment", "-1");
+                $("#expVal").get(0).options.length = 0;
+                $("#expVal").get(0).options[0] = new Option("Choose experiment", "-1");
             }
         }
     </script>

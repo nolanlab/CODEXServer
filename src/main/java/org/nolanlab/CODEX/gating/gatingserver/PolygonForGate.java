@@ -8,9 +8,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Modifier;
 
-public class ShapeForGate {
+public class PolygonForGate {
 
-    public Shape createShape(String coordinates) {
+    public Polygon createPolygon(String coordinates) {
 
         coordinates = coordinates.replace("[{", "{");
         coordinates = coordinates.replace("}]", "}");
@@ -32,8 +32,8 @@ public class ShapeForGate {
             yPoints[i] = Integer.parseInt(arrYJson.get(i).toString());
         }
 
-        Shape s =  new Polygon(xPoints, yPoints, xPoints.length);
-        return s;
+        Polygon p =  new Polygon(xPoints, yPoints, xPoints.length);
+        return p;
     }
 
 

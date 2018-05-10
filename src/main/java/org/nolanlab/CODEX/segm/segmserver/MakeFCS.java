@@ -25,9 +25,9 @@ public class MakeFCS {
     private static File uncompDir;
     private static ExperimentHelper expHelper = new ExperimentHelper();
 
-    public static void callMakeFcs(SegConfigParam segParam, String ts) throws Exception {
+    public static void callMakeFcs(SegConfigParam segParam) throws Exception {
 
-        dir = new File(segParam.getRootDir() + File.separator + "segm" + File.separator + "segm_" + ts);
+        dir = new File(segParam.getRootDir() + File.separator + "segm" + File.separator + segParam.getSegmName());
         fcsDir = new File(dir + File.separator + "FCS");
         compDir = new File(fcsDir + File.separator + "compensated");
         uncompDir = new File(fcsDir + File.separator + "uncompensated");

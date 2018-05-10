@@ -20,12 +20,10 @@ import java.util.*;
 public class RunSegm {
 
     private SegmHelper segmHelper = new SegmHelper();
-    private String timestamp;
     private int totalFolder;
     private int progress = 0;
 
-    public void runSeg(SegConfigParam segParam, String ts) throws Exception {
-        timestamp = ts;
+    public void runSeg(SegConfigParam segParam) throws Exception {
         int tile=0;
 
         File rootDir = segParam.getRootDir();
@@ -57,7 +55,7 @@ public class RunSegm {
         else {
             throw new IllegalStateException("No image sequence folders found. Run uploader and try again!");
         }
-        File segJsonOut = new File(rootDir.getAbsolutePath()+File.separator+"segm"+File.separator+"segm_"+timestamp + File.separator + "segmConfig.json");
+        File segJsonOut = new File(rootDir.getAbsolutePath()+File.separator+"segm"+File.separator + segParam.getSegmName() + File.separator + "segmConfig.json");
         segmHelper.saveToFile(segParam, segJsonOut);
     }
 
@@ -126,7 +124,7 @@ public class RunSegm {
         cellsSegmentedObject = Arrays.stream(cellsSegmentedObject).filter(c -> c.getPoints().length >= sizeCutoff).toArray(SegmentedObject[]::new);
         BufferedImage[] bi2 = null;
 
-        File segOut = new File(segConfigParam.getRootDir()+File.separator+"segm"+File.separator+"segm_"+timestamp);
+        File segOut = new File(segConfigParam.getRootDir()+File.separator+"segm"+File.separator + segConfigParam.getSegmName());
         if(!segOut.exists() && !segOut.isDirectory()) {
             segOut.mkdirs();
         }

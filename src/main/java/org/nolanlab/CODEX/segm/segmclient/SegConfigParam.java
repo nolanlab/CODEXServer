@@ -3,6 +3,7 @@ package org.nolanlab.CODEX.segm.segmclient;
 import java.io.File;
 
 public class SegConfigParam {
+    private String segmName;
     File rootDir = null;
     File config = null;
     boolean use_membrane = false;
@@ -25,6 +26,13 @@ public class SegConfigParam {
     boolean delaunay_graph = true;
     int concentricCircles = 0;
 
+    public String getSegmName() {
+        return segmName;
+    }
+
+    public void setSegmName(String segmName) {
+        this.segmName = segmName;
+    }
 
     public File getRootDir() {
         return rootDir;

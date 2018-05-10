@@ -5,7 +5,7 @@ import java.awt.*;
 public class GateParamForJson {
 
     private String gateName;
-    private Shape shape;
+    private Polygon polygon;
     private String x;
     private String y;
 
@@ -17,12 +17,12 @@ public class GateParamForJson {
         this.gateName = gateName;
     }
 
-    public Shape getShape() {
-        return shape;
+    public Shape getPolygon() {
+        return polygon;
     }
 
-    public void setShape(Shape shape) {
-        this.shape = shape;
+    public void setPolygon(Polygon polygon) {
+        this.polygon = polygon;
     }
 
     public String getX() {
