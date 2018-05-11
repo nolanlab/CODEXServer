@@ -10,147 +10,226 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/imgareaselect-default.css" />
+    <link rel="stylesheet" href="/css/style4.css">
     <script type="text/javascript" src="/scripts/jquery.min.js"></script>
     <script type="text/javascript" src="/scripts/jquery.imgareaselect.dev.js"></script>
     <style>
         #photo{
             border: 1px solid #000;
             padding: 0;
+            display: block;
+            margin: 0 auto;
         }
         #gateModal {
             display: none;
         }
     </style>
 </head>
+
 <body>
-<div class="container-fluid">
-    <h2 align="center">Gating</h2><br />
-    <div class="row">
-        <div class="col-sm-4">
-            <div id="gatingconfig">
-                <div class="panel panel-primary">
-                    <div class="panel-heading"><i>Specify FCS config</i></div>
-                    <div class="panel-body">
-                        <div class="form-group">
-                            <label for="user">User</label>
-                            <select name="user" id="user" class="form-control input" placeholder="Choose user" required>
-                                <option value="">Choose user</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exp">Experiment name</label>
-                            <select name="exp" id="exp" class="form-control input" placeholder="Choose experiment" required>
-                                <option value="">Choose experiment</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="tstamp">Segmentation configuration</label>
-                            <select name="tstamp" id="tstamp" class="form-control input" placeholder="Choose segmentation configuration" required>
-                                <option value="">Choose segmentation configuration</option>
-                            </select>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="fcs">FCS file type</label>
-                            <select name="fcs" id="fcs" class="form-control input" placeholder="Choose FCS file type" required>
-                                <option value="compensated">Compensated</option>
-                                <option value="uncompensated">Uncompensated</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="wrapper">
+    <nav id="sidebar" class="active">
+        <div class="sidebar-header">
+            <h3>Codex pipeline</h3>
+            <strong>Codex</strong>
         </div>
 
-        <div class="col-sm-4">
-            <div id="imagecontainer" style="display: none;" >
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <i>
-                        Gating image
-                        </i>
-                        <!--<button class="pull-right btn btn-primary btn-xs" id="addButton" style="display:none">Add</button>-->
-                    </div>
-                    <div class="panel-body">
+        <ul class="list-unstyled components">
+            <li>
+                <a href="/html/home.html">
+                    <i class="glyphicon glyphicon-home"></i>
+                    Home
+                </a>
 
-                        <div class="form-group">
-                            <label for="x">X</label>
-                            <select name="x" id="x" class="form-control input" placeholder="Choose X" required>
-                                <option value="">Choose X</option>
-                            </select>
-                        </div>
+                <a href="/html/uploader.html">
+                    <i class="glyphicon glyphicon-level-up"></i>
+                    Uploader
+                </a>
 
-                        <div class="form-group">
-                            <label for="y">Y</label>
-                            <select name="y" id="y" class="form-control input" placeholder="Choose Y" required>
-                                <option value="">Choose Y</option>
-                            </select>
-                        </div>
+                <a href="/html/segm.html">
+                    <i class="glyphicon glyphicon-th"></i>
+                    Segmentation
+                </a>
+            </li>
 
-                        <div class="form-group" id="imgForGate" style="display: none;">
-                            <span class="border border-dark">
-                                <img id="photo" class="img-responsive center-block">
-                            </span>
-                        </div>
+            <li class="active">
+                <a href="/html/gate.html">
+                    <i class="glyphicon glyphicon-filter"></i>
+                    Gating
+                </a>
+            </li>
 
-                        <!--<div class="form-group" id="submit" style="display: none;">-->
-                        <!--<button type="submit" class="btn btn-default" data-toggle="modal" data-target="#gateModal">Submit gate</button>-->
-                        <!--</div>-->
+            <li>
+                <a href="/html/clustering.html">
+                    <i class="glyphicon glyphicon-equalizer"></i>
+                    Clustering
+                </a>
 
-                        <div class="modal fade" id="gateModal" tabindex="-1" role="dialog" aria-labelledby="gateModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="gateModalLabel">Save new gate</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <form id ="saveGate" method="GET" action="http://localhost:4567/saveGate">
+                <a href="#">
+                    <i class="glyphicon glyphicon-play-circle"></i>
+                    Viewer
+                </a>
+            </li>
+        </ul>
+    </nav>
 
-                                        <input type="hidden" id="userVal" name="userVal" />
-                                        <input type="hidden" id="expVal" name="expVal" />
-                                        <input type="hidden" id="tstampVal" name="tstampVal" />
-                                        <input type="hidden" id="fcsVal" name="fcsVal" />
-                                        <input type="hidden" id="xVal" name="xVal" />
-                                        <input type="hidden" id="yVal" name="yVal" />
-                                        <input type="hidden" id="coordinatesVal" name="coordinatesVal" />
+    <div id="content">
 
-                                        <div class="modal-body">
-                                            <div class="form-group">
-                                                <label for="gateName" class="col-form-label">Enter name for gate</label>
-                                                <input type="text" class="form-control" id="gateName" name="gateName">
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <input type="submit" class="btn btn-primary" value="Save gate" />
-                                        </div>
-                                    </form>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" style="background-color: #337ab7">
+                        <i class="glyphicon glyphicon-align-left"></i>
+                        <span>Menu</span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/html/faq.html">FAQ</a> </li>
+                        <li><a href="/html/contact.html">Contact</a></li>
+                        <li><a href="/html/about.html">About us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <h2>Gating</h2>
+        <p>Choose the experiment folder and select the type of FCS files from the list that you want to gate and create a filtered FCS file. You can also load the settings from a saved gate and then
+            modify it there.
+        </p>
+
+        <div class="container-fluid">
+            <!--<h2 align="center">Gating</h2><br />-->
+            <div class="row">
+                <div class="col-sm-4">
+                    <div id="gatingconfig">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"><i>Specify FCS config</i></div>
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="user">User</label>
+                                    <select name="user" id="user" class="form-control input" placeholder="Choose user" required>
+                                        <option value="">Choose user</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exp">Experiment name</label>
+                                    <select name="exp" id="exp" class="form-control input" placeholder="Choose experiment" required>
+                                        <option value="">Choose experiment</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="tstamp">Segmentation configuration</label>
+                                    <select name="tstamp" id="tstamp" class="form-control input" placeholder="Choose segmentation configuration" required>
+                                        <option value="">Choose segmentation configuration</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="fcs">FCS file type</label>
+                                    <select name="fcs" id="fcs" class="form-control input" placeholder="Choose FCS file type" required>
+                                        <option value="compensated">Compensated</option>
+                                        <option value="uncompensated">Uncompensated</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="col-sm-4">
-            <div id="loadGates" style="display: none;" >
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <i>
-                        Load gating configuration
-                        </i>
+                <div class="col-sm-4">
+                    <div id="imagecontainer" style="display: none;" >
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <i>
+                                Gating image
+                                </i>
+                                <!--<button class="pull-right btn btn-primary btn-xs" id="addButton" style="display:none">Add</button>-->
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="form-group">
+                                    <label for="x">X</label>
+                                    <select name="x" id="x" class="form-control input" placeholder="Choose X" required>
+                                        <option value="">Choose X</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="y">Y</label>
+                                    <select name="y" id="y" class="form-control input" placeholder="Choose Y" required>
+                                        <option value="">Choose Y</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" id="imgForGate" style="display: none;">
+                                    <span class="border border-dark">
+                                        <img id="photo">
+                                    </span>
+                                </div>
+
+                                <!--<div class="form-group" id="submit" style="display: none;">-->
+                                <!--<button type="submit" class="btn btn-default" data-toggle="modal" data-target="#gateModal">Submit gate</button>-->
+                                <!--</div>-->
+
+                                <div class="modal fade" id="gateModal" tabindex="-1" role="dialog" aria-labelledby="gateModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="gateModalLabel"><b>Save as new gate</b></h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form id ="saveGate" method="GET" action="http://localhost:4567/saveGate">
+
+                                                <input type="hidden" id="userVal" name="userVal" />
+                                                <input type="hidden" id="expVal" name="expVal" />
+                                                <input type="hidden" id="tstampVal" name="tstampVal" />
+                                                <input type="hidden" id="fcsVal" name="fcsVal" />
+                                                <input type="hidden" id="xVal" name="xVal" />
+                                                <input type="hidden" id="yVal" name="yVal" />
+                                                <input type="hidden" id="coordinatesVal" name="coordinatesVal" />
+
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <label for="gateName" class="col-form-label">Enter name for gate</label>
+                                                        <input type="text" class="form-control" id="gateName" name="gateName">
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+                                                    <input type="submit" class="btn btn-primary" value="Save" />
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <label for="gate">Load from existing gates</label>
-                        <select name="gate" id="gate" class="form-control input" placeholder="Load from existing gates">
-                            <option value="">Choose gate</option>
-                        </select>
+                </div>
+
+                <div class="col-sm-4">
+                    <div id="loadGates" style="display: none;" >
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <i>
+                                Load gating configuration
+                                </i>
+                            </div>
+                            <div class="panel-body">
+                                <label for="gate">Load from existing gates</label>
+                                <select name="gate" id="gate" class="form-control input" placeholder="Load from existing gates">
+                                    <option value="">Choose gate</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -158,6 +237,25 @@
     </div>
 </div>
 </body>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $('#close').on('click',
+         function(e) {
+            jQuery(function ($) {
+                var ias = $('#photo').imgAreaSelect({instance: true});
+                ias.cancelSelection();
+            })
+         }
+    );
+</script>
 
 <script type="text/javascript" language="javascript">
     var userParam;
