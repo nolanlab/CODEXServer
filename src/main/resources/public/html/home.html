@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CODEX Home</title>
+    <link rel="shortcut icon" href="/images/codexlogo.ico" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/sidepanel.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <nav id="sidebar" class="active">
+        <div class="sidebar-header">
+            <h3>Codex pipeline</h3>
+            <strong>Codex</strong>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="/html/home.html">
+                    <i class="glyphicon glyphicon-home"></i>
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="/html/uploader.html">
+                    <i class="glyphicon glyphicon-level-up"></i>
+                    Uploader
+                </a>
+
+                <a href="/html/segm.html">
+                    <i class="glyphicon glyphicon-th"></i>
+                    Segmentation
+                </a>
+
+                <a href="/html/gate.html">
+                    <i class="glyphicon glyphicon-filter"></i>
+                    Gating
+                </a>
+
+                <a href="/html/clustering.html">
+                    <i class="glyphicon glyphicon-equalizer"></i>
+                    Clustering
+                </a>
+
+                <a href="#">
+                    <i class="glyphicon glyphicon-play-circle"></i>
+                    Viewer
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="content">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" style="background-color: #337ab7">
+                        <i class="glyphicon glyphicon-align-left"></i>
+                        <span>Menu</span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/html/faq.html">FAQ</a> </li>
+                        <li><a href="/html/contact.html">Contact</a></li>
+                        <li><a href="/html/about.html">About us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <h2>Welcome, CODEXians!</h2>
+        <p>
+            Welcome to CODEX home! You can perform image processing analysis for CODEX such as drift compensation, deconvolution, uploading the data, segmentation, clustering and more!
+            <br />
+            Navigate across the different links in the left menu to access the various components of the CODEX pipeline.
+        </p>
+
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+</script>
+</html>
