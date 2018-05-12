@@ -2,11 +2,14 @@ package org.nolanlab.CODEX.gating.gatingserver;
 
 import com.google.common.collect.Streams;
 import dataIO.DatasetStub;
+import flowcyt_fcs.ExportFCS;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class GateFilter {
 
@@ -54,6 +57,29 @@ public class GateFilter {
                 binnedDs[j][i] = (int)(((numPlotBins-1)*(row[j]-scaleMin[j]))/(scaleMax[j]-scaleMin[j]));
             }
         }
+
+    }
+
+
+    public void setGate(int X, int Y, Polygon polygon, String gateName){
+
+        ArrayList<float[]> evt = new ArrayList<>();
+
+        for (int i = 0; i < len; i++) {
+            int xbin = binnedDs[X][i];
+            int ybin = binnedDs[Y][i];
+            if(polygon.contains(new Point(xbin,ybin))){
+                double[] row = dss.getRow(i);
+                float[] rowF = new float[row.length];
+                for (int j = 0; j < row.length; j++) {
+                    rowF[j] = (float)row[j];
+                }
+                evt.add(rowF);
+            }
+        }
+
+        new ExportFCS().writeFCSAsFloat(src.getName().replace(".fcs","")+"_gate-"+gateName, evt.toArray(new float[evt.size()][]), dss.getShortColumnNames(), dss.getLongColumnNames());
+
 
     }
 
