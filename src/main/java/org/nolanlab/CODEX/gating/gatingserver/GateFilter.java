@@ -9,7 +9,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 public class GateFilter {
 
@@ -60,9 +59,7 @@ public class GateFilter {
 
     }
 
-
     public void setGate(int X, int Y, Polygon polygon, String gateName){
-
         ArrayList<float[]> evt = new ArrayList<>();
 
         for (int i = 0; i < len; i++) {
@@ -78,9 +75,7 @@ public class GateFilter {
             }
         }
 
-        new ExportFCS().writeFCSAsFloat(src.getName().replace(".fcs","")+"_gate-"+gateName, evt.toArray(new float[evt.size()][]), dss.getShortColumnNames(), dss.getLongColumnNames());
-
-
+        new ExportFCS().writeFCSAsFloat(src.getAbsolutePath().replace(".fcs","")+"_gate-"+gateName, evt.toArray(new float[evt.size()][]), dss.getShortColumnNames(), dss.getLongColumnNames());
     }
 
     public BufferedImage getPlot(int X, int Y, ColorMapper mapper){
@@ -112,5 +107,4 @@ public class GateFilter {
         }
         return bi;
     }
-
 }

@@ -38,14 +38,16 @@ public class RscCodexController {
     }
 
     public static void main(String[] args) {
-        staticFiles.location("/public");
-        staticFiles.externalLocation("C:/CODEX_server_home/config");
-        staticFiles.externalLocation("C:/CODEX_server_home/data");
-        staticFiles.expireTime(60);
 
-        init();
+
+
         initServer(args[0] + File.separator + "data");
 
+        staticFiles.location("/public");
+        staticFiles.externalLocation(args[0] + File.separator + "cache");
+        staticFiles.externalLocation(dataHomeDir);
+        staticFiles.expireTime(60);
+        init();
         Gson gson = new Gson();
 
         //Common
@@ -107,7 +109,7 @@ public class RscCodexController {
         //Segmentation
         get("/getProgress", "application/json", (request, response) -> String.valueOf(rs.getProgress()));
 
-        post("/runSegm", "application/json", (request, response) -> {
+        get("/runSegm", "application/json", (request, response) -> {
             String user = request.queryParams("user");
             String exp = request.queryParams("exp");
             String radius = request.queryParams("radius");
@@ -201,8 +203,9 @@ public class RscCodexController {
                 }
             }
             //response.redirect("html");
-            return "Segmentation Ran Successfully! Check the processed folder at: " + user+File.separator+exp+File.separator;
-        });
+            String res = "Segmentation Ran Successfully! Check the processed folder at: " + user+File.separator+exp+File.separator;
+            return res;
+        }, gson::toJson);
 
 
 
@@ -228,28 +231,21 @@ public class RscCodexController {
             String user = request.queryParams("user");
             String exp = request.queryParams("exp");
             String fcs = request.queryParams("FCS");
-            //String reg = request.queryParams("reg");
             String X = request.queryParams("X");
             String Y = request.queryParams("Y");
             String tstamp = request.queryParams("tstamp");
 
-            List<String> colNames = XYnames;
+            int x = Integer.parseInt(X);
+            int y = Integer.parseInt(Y);
 
-            int x=0;
-            int y=0;
-
-            for(int i=0; i<colNames.size(); i++){
-                if(colNames.get(i).contains(X)) {
-                    x = i;
-                }
-                if(colNames.get(i).contains(Y)) {
-                    y = i;
-                }
+            if(x == -1 || y == -1) {
+                throw new IllegalStateException("X or Y cant be -1!");
             }
 
             System.out.println("drawing the biaxial: X=" +x +  " Y=" + y);
 
             String serverConfig = System.getProperty("user.dir") + File.separator + "data";
+
             File fcsDir = new File(serverConfig + File.separator + user + File.separator + exp + File.separator + "processed" + File.separator + "segm" + File.separator + tstamp + File.separator
                     + "FCS" + File.separator + fcs);
 
@@ -263,7 +259,7 @@ public class RscCodexController {
 
             BufferedImage bi = gf.getPlot(x,y, Config.biaxialPlotColorMapper);
 
-            File _imagesDir = new File(new File(serverConfig).getParent() + File.separator + "config"+ File.separator + "_images/");
+            File _imagesDir = new File(new File(serverConfig).getParent() + File.separator + "cache"+ File.separator + "_images/");
             if(!_imagesDir.exists()) {
                 _imagesDir.mkdir();
             }
@@ -278,13 +274,13 @@ public class RscCodexController {
         get("/saveGate", "application/json",(request, response) -> {
             //[{"x":[78,172,172,78],"y":[52,52,138,138]}]
             String gateName = request.queryParams("gateName");
-            String user = request.queryParams("userVal");
-            String exp = request.queryParams("expVal");
-            String tstamp = request.queryParams("tstampVal");
-            String x = request.queryParams("xVal");
-            String y = request.queryParams("yVal");
-            String fcs = request.queryParams("fcsVal");
-            String coordinates = request.queryParams("coordinatesVal");
+            String user = request.queryParams("user");
+            String exp = request.queryParams("exp");
+            String tstamp = request.queryParams("tstamp");
+            String X = request.queryParams("X");
+            String Y = request.queryParams("Y");
+            String fcs = request.queryParams("FCS");
+            String coordinates = request.queryParams("coordinates");
 
             PolygonForGate polygonForGate = new PolygonForGate();
             Polygon p = polygonForGate.createPolygon(coordinates);
@@ -292,11 +288,31 @@ public class RscCodexController {
             GateParamForJson gateParamForJson = new GateParamForJson();
             gateParamForJson.setGateName(gateName);
             gateParamForJson.setPolygon(p);
-            gateParamForJson.setX(x);
-            gateParamForJson.setY(y);
+
+
+            gateParamForJson.setX(XYnames.get(Integer.parseInt(X)));
+            gateParamForJson.setY(XYnames.get(Integer.parseInt(Y)));
 
             GatingHelper gatingHelper = new GatingHelper();
             gatingHelper.saveGateAsJson(user, exp, tstamp, fcs, gateParamForJson);
+
+            String serverConfig = System.getProperty("user.dir") + File.separator + "data";
+
+            File fcsDir = new File(serverConfig + File.separator + user + File.separator + exp + File.separator + "processed" + File.separator + "segm" + File.separator + tstamp + File.separator
+                    + "FCS" + File.separator + fcs);
+
+            File[] fcsFile = fcsDir.listFiles(file -> file.getName().endsWith(".fcs"));
+
+            if(fcsFile == null && fcsFile.length!=1){
+                throw new IllegalStateException("invalid number of files for region:" + "reg001" + " numFiles"+fcsFile.length);
+            }
+
+            GateFilter gf = new GateFilter(fcsFile[0], Config.BIAXIAL_PLOT_SIZE);
+
+            int xInd = Integer.parseInt(X);
+            int yInd = Integer.parseInt(Y);
+
+            gf.setGate(xInd,yInd,p, gateName);
 
             return gateParamForJson;
         }, gson::toJson);
@@ -317,8 +333,12 @@ public class RscCodexController {
             gatingConfiguration.setExp(request.queryParams("exp"));
             gatingConfiguration.setTStamp(request.queryParams("tstamp"));
             gatingConfiguration.setFcs(request.queryParams("FCS"));
-            gatingConfiguration.setSelectedX(request.queryParams("X"));
-            gatingConfiguration.setSelectedY(request.queryParams("Y"));
+            String X = request.queryParams("X");
+            String Y = request.queryParams("Y");
+            if(X != null && Y != null) {
+                gatingConfiguration.setSelectedX(XYnames.get(Integer.parseInt(X)));
+                gatingConfiguration.setSelectedY(XYnames.get(Integer.parseInt(Y)));
+            }
             gatingConfiguration.setSelectedGate(request.queryParams("gate"));
 
             //change parameter here

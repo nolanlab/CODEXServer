@@ -613,7 +613,15 @@ public class frmMain extends JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Create and display the form */
+        //Set look and feel
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Create and display the form
         EventQueue.invokeLater(() -> {
             try {
                 frmMain frm = new frmMain();

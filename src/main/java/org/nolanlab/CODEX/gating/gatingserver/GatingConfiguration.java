@@ -136,7 +136,8 @@ public class GatingConfiguration {
                 for (File aGateJson : listGatesJson) {
                     try {
                         GateParamForJson gp = loadFromJSON(aGateJson);
-                        if (gp.getX().equalsIgnoreCase(this.selectedX) && gp.getY().equalsIgnoreCase(this.selectedY)) {
+//                        if (gp.getX().equalsIgnoreCase(this.selectedX) && gp.getY().equalsIgnoreCase(this.selectedY)) {
+                        if (this.selectedX.contains(gp.getX()) && this.selectedY.contains(gp.getY())) {
                             return gp;
                         }
                     } catch (Exception e) {

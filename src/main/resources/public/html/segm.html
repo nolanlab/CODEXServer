@@ -158,6 +158,7 @@
                             <div class="modal fade" id="segmModal" tabindex="-1" role="dialog" aria-labelledby="gateModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
+
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="segmModalLabel"><b>Save segmentation run</b></h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -165,28 +166,17 @@
                                             </button>
                                         </div>
 
-                                        <form id ="segm" method="POST" action="http://localhost:4567/runSegm" onsubmit="showProgress()">
-                                            <input type="hidden" id="user" name="user" />
-                                            <input type="hidden" id="exp" name="exp" />
-                                            <input type="hidden" id="radius" name="radius" />
-                                            <input type="hidden" id="maxCutOff" name="maxCutOff" />
-                                            <input type="hidden" id="minCutOff" name="minCutOff" />
-                                            <input type="hidden" id="relativeCutOff" name="relativeCutOff" />
-                                            <input type="hidden" id="nucStainChannel" name="nucStainChannel" />
-                                            <input type="hidden" id="nucStainCycle" name="nucStainCycle" />
-                                            <input type="hidden" id="membStainChannel" name="membStainChannel" />
-                                            <input type="hidden" id="membStainCycle" name="membStainCycle" />
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <label for="segmName" class="col-form-label">Enter name for the segmentation run</label>
-                                                    <input type="text" class="form-control" id="segmName" name="segmName" required autofocus>
-                                                </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="segmName" class="col-form-label">Enter name for the segmentation run</label>
+                                                <input type="text" class="form-control" id="segmName" name="segmName" required autofocus>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <input type="submit" class="btn btn-primary" value="Run" />
-                                            </div>
-                                        </form>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary" id="runSegm">Run</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -210,6 +200,27 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!--Modal to display segmentation results-->
+                        <div class="modal fade" id="resultModal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title"><b>Segmentation results</b></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" id="segmResults">
+                                        <p></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" id="resultClose" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -222,6 +233,12 @@
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
         });
+    });
+</script>
+
+<script type="text/javascript">
+    $('#resultClose').click(function() {
+        location.reload();
     });
 </script>
 
@@ -257,11 +274,6 @@
         jQuery(function($) {
             $('#segmModal').modal('toggle');
         });
-        var $this = $('#startSegm');
-        $this.button('loading');
-        setTimeout(function() {
-            $this.button('reset');
-        }, 20000);
     });
 </script>
 
@@ -288,6 +300,68 @@
                 });
             }
     });
+</script>
+
+
+<script type="text/javascript">
+    $('#runSegm').click(function() {
+        jQuery(function ($) {
+            $('#segmModal').modal('toggle');
+        });
+        RunSegmentation(userParam, expParam, radiusParam, maxCutoffParam, minCutoffParam, relativeCutoffParam, nucStainChannelParam, nucStainCycleParam, membStainChannelParam, membStainCycleParam, $('#segmName').val());
+    });
+
+    function RunSegmentation(user, exp, radius, maxCutOff, minCutOff, relativeCutOff, nucStainChannel, nucStainCycle, membStainChannel, membStainCycle, segmName) {
+        if(user != -1 && exp != -1 && radius && maxCutOff && minCutOff && relativeCutOff && nucStainChannel && nucStainCycle && membStainChannel && membStainCycle && segmName.trim().length != 0) {
+            showProgress();
+            $('#startSegm').button('loading');
+            setTimeout(function() {
+                $('#startSegm').button('reset');
+            }, 20000);
+            $.ajax({
+                type: "GET",
+                url: "/runSegm?user="+user+"&exp="+exp+"&radius="+radius+"&maxCutOff="+maxCutOff+"&minCutOff="+minCutOff+"&relativeCutOff="+relativeCutOff+"&nucStainChannel="+nucStainChannel+"&nucStainCycle="+nucStainCycle
+                +"&membStainChannel="+membStainChannel+"&membStainCycle="+membStainCycle+"&segmName="+segmName,
+                contentType: "application/json",
+                dataType: "json",
+                success: function(msg) {
+                    if(msg != null) {
+                        jQuery(function ($) {
+                            $('#resultModal').modal('show');
+                        });
+                        $('#segmResults').html(msg);
+                        var gateLink = '<br />' + "Click " + '<a href="/html/gate.html">' + '<u>' + "here" + '</u>' + '</a>' + " to proceed with gating.";
+                        $('#segmResults').append(gateLink);
+                    }
+                    else {
+                        jQuery(function ($) {
+                            $('#resultModal').modal('show');
+                        });
+                        $('#segmResults').html("Error caused by: " + msg);
+                        var errorStatus = '<br />' + "Oops! Something went wrong. Try running segmentation again or contact us! " + '<br />';
+                        $('#segmResults').append(errorStatus);
+                    }
+
+                },
+                error: function(msg) {
+                    jQuery(function ($) {
+                        $('#resultModal').modal('show');
+                    });
+                    $('#segmResults').html("Error caused by: " + msg);
+                    var errorStatus = '<br />' + "Oops! Something went wrong. Try running segmentation again or contact us! " + '<br />';
+                    $('#segmResults').append(errorStatus);
+                }
+            });
+        }
+        else {
+            jQuery(function ($) {
+                $('#resultModal').modal('show');
+            });
+            $('#segmResults').html("Some field is missing.");
+            var errorStatus = '<br />' + "Please check the segmentation parameters again!" + '<br />';
+            $('#segmResults').append(errorStatus);
+        }
+    }
 </script>
 
 <script type="text/javascript">
@@ -329,6 +403,7 @@
                 }
             });
         });
+
         function GetExperiments(user) {
             if(user != -1) {
                 $("#expVal").get(0).options.length = 0;
