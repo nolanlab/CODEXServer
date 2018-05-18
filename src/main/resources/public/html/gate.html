@@ -591,6 +591,13 @@
         var defaultGateOption = $('#gate').val();
         if(defaultGateOption == -1) {
             $('#gateName').val("");
+            $('#x').val(-1);
+            $('#y').val(-1);
+            jQuery(function($) {
+                var ias = $('#photo').imgAreaSelect({ instance: true });
+                ias.cancelSelection();
+            });
+            $("#imgForGate").css('display', 'none');
         }
         else {
             loadGateConfig($("#user").val(), $("#exp").val(), $("#tstamp").val(), $("#fcs").val(), -1, -1, $("#gate").val());

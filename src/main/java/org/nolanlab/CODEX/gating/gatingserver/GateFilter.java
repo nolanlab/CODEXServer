@@ -75,7 +75,7 @@ public class GateFilter {
             }
         }
 
-        new ExportFCS().writeFCSAsFloat(src.getAbsolutePath().replace(".fcs","")+"_gate-"+gateName, evt.toArray(new float[evt.size()][]), dss.getShortColumnNames(), dss.getLongColumnNames());
+        new ExportFCS().writeFCSAsFloat(src.getAbsolutePath().replace(".fcs","")+"_gate-" + gateName + ".fcs", evt.toArray(new float[evt.size()][]), dss.getShortColumnNames(), dss.getLongColumnNames());
     }
 
     public BufferedImage getPlot(int X, int Y, ColorMapper mapper){

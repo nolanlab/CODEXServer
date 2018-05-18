@@ -48,7 +48,7 @@ public class ConcatenateResults {
 
         for (String reg : regions) {
             
-        for (String st : new String[]{"_Expression_Uncompensated.txt", "_Expression_Compensated.txt"}) {
+        for (String st : new String[]{"_Uncompensated.txt", "_Compensated.txt"}) {
             String headerLine = null;
             File txtDir;
             if(st.contains("_Uncom")) {
@@ -58,7 +58,7 @@ public class ConcatenateResults {
                 txtDir = compDir;
             }
             BufferedWriter bw = new BufferedWriter(new FileWriter(txtDir.getAbsolutePath() + File.separator + reg + st));
-            for (File f : txtDir.listFiles(f -> f.getName().endsWith(st) && f.getName().startsWith(reg)&&f.getName().contains("_X")&&f.getName().contains("_Expression"))) {
+            for (File f : txtDir.listFiles(f -> f.getName().endsWith(st) && f.getName().startsWith(reg)&&f.getName().contains("_X")&&f.getName().toLowerCase().contains("compensated"))) {
                 System.out.println("Concatenating: " + f.getName());
                 BufferedReader br = new BufferedReader(new FileReader(f));
 

@@ -110,14 +110,7 @@ public class RunSegm {
             innerRings = MaximaFinder3D.findCellsByIntensityGradient((ImagePlus) mult, segConfigParam.getRadius(), (double) segConfigParam.getMaxCutoff(), (double) segConfigParam.getMinCutoff(), (double) segConfigParam.getInner_ring_size(), (boolean) segConfigParam.isShowImage(), 1.0);
         }
 
-        if (segConfigParam.isShowImage()) {
-            try {
-                new ImageJ();
-                mult.show();
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-        }
+
 
         //Filter out small sized regions and remove that row from the txt file
         double sizeCutoff = (segConfigParam.getRadius() * segConfigParam.getRadius() * segConfigParam.getRadius()) * Math.PI * (4.0 / 3.0);

@@ -81,15 +81,16 @@
             </nav>
 
             <h2>Clustering</h2>
-            <p>Choose the experiment folder for a user and specify the parameters given below to proceed with segmentation. Make sure that the
-                experiment was processed and uploaded to the server before starting.
+            <p>Choose the experiment folder for a user and specify the parameters given below to proceed with clustering. Make sure that the
+                experiment was processed, uploaded and segmented in the server before starting.
             </p>
 
             <div class="container-fluid" style="width:600px;">
                 <div class="panel panel-primary">
                     <div class="panel-heading"><i>Clustering configuration parameters</i></div>
                     <div class="panel-body">
-                        <form id ="cluster" method="POST" action="http://localhost:4567/runClustering">
+
+                        <!--<form id ="cluster" method="POST" action="http://localhost:4567/runClustering">-->
 
                             <div class="form-group">
                                 <label for="user">Select User</label>
@@ -181,15 +182,85 @@
                             </div>
 
                             <div class="form-group" >
-                                <input type="submit" id="submit" value="Start clustering" class="btn btn-primary btn-lg" data-loading-text="Running clustering" />
+                                <button type="button" id="startClustering" class="btn btn-primary btn-lg center-block" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Running clustering">Start Clustering</button>
                             </div>
 
                             <div class="progress">
                                 <div id = "pro" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                                    <font color="black"> 0% segmented </font>
+                                    <font color="black"> 0% clustered </font>
                                 </div>
                             </div>
-                        </form>
+                        <!--</form>-->
+
+                        <!--Modal to get the name of the clustering-->
+                        <div class="modal fade" id="clusteringModal" tabindex="-1" role="dialog" aria-labelledby="clusteringModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="clusteringModalLabel"><b>Save Clustering run</b></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="clusteringName" class="col-form-label">Enter name for the clustering run</label>
+                                            <input type="text" class="form-control" id="clusteringName" name="clusteringName" required autofocus>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" id="runClustering">Run</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--Modal to verify input-->
+                        <div class="modal fade" id="inpCheckmodal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title"><b>Field missing</b></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Check if input user and/or experiment is selected.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Modal to display clustering results-->
+                        <div class="modal fade" id="resultModal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title"><b>Clustering results</b></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" id="clusteringResults">
+                                        <p></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" id="resultClose" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -198,13 +269,79 @@
 </body>
 
 <script type="text/javascript">
-    $('#cluster').submit(function() {
-        var $this = $('#submit');
-        $this.button('loading');
-        setTimeout(function() {
-            $this.button('reset');
-        }, 20000);
+    $('#startClustering').click(function() {
+        if($("#user").val() == -1 || $("#exp").val() == -1 || $('#tstamp').val() == -1) {
+            jQuery(function ($) {
+                $('#inpCheckmodal').modal('show');
+            });
+        }
+        else {
+            jQuery(function ($) {
+                $('#clusteringModal').modal('show');
+            });
+        }
     });
+</script>
+
+<script type="text/javascript">
+    $('#runClustering').click(function() {
+        jQuery(function ($) {
+            $('#clusteringModal').modal('toggle');
+        });
+        RunClustering($('#user').val(), $('#exp').val(), radiusParam, maxCutoffParam, minCutoffParam, relativeCutoffParam, nucStainChannelParam, nucStainCycleParam, membStainChannelParam, membStainCycleParam, $('#segmName').val());
+    });
+
+    function RunClustering(user, exp, radius, maxCutOff, minCutOff, relativeCutOff, nucStainChannel, nucStainCycle, membStainChannel, membStainCycle, segmName) {
+        if(user != -1 && exp != -1 && radius && maxCutOff && minCutOff && relativeCutOff && nucStainChannel && nucStainCycle && membStainChannel && membStainCycle && segmName.trim().length != 0) {
+            showProgress();
+            $('#startClustering').button('loading');
+            setTimeout(function() {
+                $('#startClustering').button('reset');
+            }, 20000);
+            $.ajax({
+                type: "GET",
+                url: "/runSegm?user="+user+"&exp="+exp+"&radius="+radius+"&maxCutOff="+maxCutOff+"&minCutOff="+minCutOff+"&relativeCutOff="+relativeCutOff+"&nucStainChannel="+nucStainChannel+"&nucStainCycle="+nucStainCycle
+                +"&membStainChannel="+membStainChannel+"&membStainCycle="+membStainCycle+"&segmName="+segmName,
+                contentType: "application/json",
+                dataType: "json",
+                success: function(msg) {
+                    if(msg != null) {
+                        jQuery(function ($) {
+                            $('#resultModal').modal('show');
+                        });
+                        $('#segmResults').html(msg);
+                        var gateLink = '<br />' + "Click " + '<a href="/html/gate.html">' + '<u>' + "here" + '</u>' + '</a>' + " to proceed with gating.";
+                        $('#segmResults').append(gateLink);
+                    }
+                    else {
+                        jQuery(function ($) {
+                            $('#resultModal').modal('show');
+                        });
+                        $('#segmResults').html("Error caused by: " + msg);
+                        var errorStatus = '<br />' + "Oops! Something went wrong. Try running segmentation again or contact us! " + '<br />';
+                        $('#segmResults').append(errorStatus);
+                    }
+
+                },
+                error: function(msg) {
+                    jQuery(function ($) {
+                        $('#resultModal').modal('show');
+                    });
+                    $('#segmResults').html("Error caused by: " + msg);
+                    var errorStatus = '<br />' + "Oops! Something went wrong. Try running segmentation again or contact us! " + '<br />';
+                    $('#segmResults').append(errorStatus);
+                }
+            });
+        }
+        else {
+            jQuery(function ($) {
+                $('#resultModal').modal('show');
+            });
+            $('#segmResults').html("Some field is missing.");
+            var errorStatus = '<br />' + "Please check the segmentation parameters again!" + '<br />';
+            $('#segmResults').append(errorStatus);
+        }
+    }
 </script>
 
 <script type="text/javascript">
@@ -297,7 +434,7 @@
             $("#tstamp").get(0).options.length = 0;
             $("#tstamp").get(0).options[0] = new Option("Choose segmentation configuration", "-1");
             $("#clustcols").get(0).options.length = 0;
-            $("#clustcols").get(0).options[0] = new Option("Choose X", "-1");
+            $("#clustcols").get(0).options[0] = new Option("Choose clustering columns", "-1");
         }
     }
 
@@ -345,7 +482,7 @@
                 dataType: "json",
                 success: function(msg) {
                     $('#clustcols').get(0).options.length = 0;
-                    $('#clustcols').get(0).options[0] = new Option("Choose X", "-1");
+                    $('#clustcols').get(0).options[0] = new Option("Choose clustering columns", "-1");
                     $.each(msg, function(i,obj)
                     {
                         var div_data="<option value="+obj+">"+obj+"</option>";
@@ -357,9 +494,72 @@
         }
         else {
             $("#clustcols").get(0).options.length = 0;
-            $("#clustcols").get(0).options[0] = new Option("Choose X", "-1");
+            $("#clustcols").get(0).options[0] = new Option("Choose clustering columns", "-1");
         }
     }
+
+
+    $("#tstamp").bind("change", function() {
+        loadGates($("#user").val(), $("#exp").val(), $("#tstamp").val(), $("#fcs").val());
+    });
+
+    $("#fcs").bind("change", function() {
+        loadGates($("#user").val(), $("#exp").val(), $("#tstamp").val(), $("#fcs").val());
+    });
+
+    function loadGates(user, exp, tstamp, fcs) {
+        if(user != -1 && exp != -1 && tstamp != -1 && fcs != -1) {
+            tstampParam = tstamp;
+            fcsParam = fcs;
+
+            $.ajax({
+                type: "GET",
+                url: "/getGates?user="+user+"&exp="+exp+"&tstamp="+tstamp+"&FCS="+fcs,
+                contentType: "application/json",
+                dataType: "json",
+                success: function(msg) {
+                    if(msg.length != 0) {
+                        $("#loadGates").show();
+                    }
+                    else {
+                        $("#loadGates").css('display', 'none');
+                    }
+                    $('#gate').get(0).options.length = 0;
+                    $('#gate').get(0).options[0] = new Option("Ungated", "Ungated");
+
+                    $.each(msg, function(i,obj)
+                    {
+                        if(msg.length != 0) {
+                            var div_data = "<option value=" + obj + ">" + obj + "</option>";
+                            $(div_data).appendTo('#gate');
+                        }
+                        else {
+                            $("#loadGates").css('display', 'none');
+                        }
+                    });
+                },
+                error: function() {
+                    $("#loadGates").css('display', 'none');
+                }
+            });
+
+        }
+        else {
+            $("#loadGates").css('display', 'none');
+        }
+    }
+
+    $("#gate").bind("change", function() {
+        var defaultGateOption = $('#gate').val();
+        if(defaultGateOption == -1) {
+            $('#gateName').val("");
+            $('#x').val(-1);
+            $('#y').val(-1);
+        }
+        else {
+            //loadGateConfig($("#user").val(), $("#exp").val(), $("#tstamp").val(), $("#fcs").val(), -1, -1, $("#gate").val());
+        }
+    });
 </script>
 
 </html>

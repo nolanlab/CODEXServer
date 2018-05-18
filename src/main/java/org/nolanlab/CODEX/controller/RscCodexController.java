@@ -1,7 +1,6 @@
 package org.nolanlab.CODEX.controller;
 
 import com.google.gson.Gson;
-import com.sun.javafx.binding.StringFormatter;
 import ij.IJ;
 import org.nolanlab.CODEX.clustering.clsserver.ClusterConfig;
 import org.nolanlab.CODEX.gating.gatingserver.*;
@@ -39,8 +38,6 @@ public class RscCodexController {
 
     public static void main(String[] args) {
 
-
-
         initServer(args[0] + File.separator + "data");
 
         staticFiles.location("/public");
@@ -69,6 +66,7 @@ public class RscCodexController {
                 String content = new Scanner(new File(dataHomeDir+"/"+user+"/"+experiment+"/Experiment.json")).useDelimiter("\\Z").next();
                 return content;
             }catch (Exception e){
+                e.printStackTrace();
                 return e.fillInStackTrace().toString();
             }
         });
@@ -83,7 +81,8 @@ public class RscCodexController {
                 MakeMontage.createMontages(user, expName, factor);
             }
             catch (Exception e) {
-                return e.getMessage();
+                e.printStackTrace();
+                return e.fillInStackTrace().toString();
             }
 
             return "Montages created at: /" + user + "/" + expName + "/processed/stitched";
@@ -99,7 +98,8 @@ public class RscCodexController {
                 Driffta.drifftaProcessing(user, expName, reg, tile);
             }
             catch(Exception e) {
-                return e.getMessage();
+                e.printStackTrace();
+                return e.fillInStackTrace().toString();
             }
 
             return "Processed files uploaded at: /" + user + "/" + expName + "/processed";
@@ -172,7 +172,8 @@ public class RscCodexController {
                 rs.runSeg(segParam);
             }
             catch (Exception e) {
-                return e.getMessage();
+                e.printStackTrace();
+                return e.fillInStackTrace().toString();
             }
             logger.print("Main segmentation done");
 
@@ -181,7 +182,8 @@ public class RscCodexController {
                 ConcatenateResults.callConcatenateResults(new File(segParam.getRootDir() + File.separator +"segm" + File.separator + segmName));
             }
             catch (Exception e) {
-                return e.getMessage();
+                e.printStackTrace();
+                return e.fillInStackTrace().toString();
             }
             logger.print("ConcatenateResults done");
 
@@ -189,7 +191,8 @@ public class RscCodexController {
                 MakeFCS.callMakeFcs(segParam);
             }
             catch (Exception e) {
-                return e.getMessage();
+                e.printStackTrace();
+                return e.fillInStackTrace().toString();
             }
 
             File checkOut = new File(segParam.getRootDir() + File.separator + "segm" + File.separator + segmName + File.separator + "FCS");
@@ -356,7 +359,7 @@ public class RscCodexController {
             return clusterConfig.listCombinedNames();
         }, gson::toJson);
 
-
+        
 
         //Viewer
         get("/getStitchedImageList", "application/octet-stream", (request, response) -> {
@@ -364,7 +367,7 @@ public class RscCodexController {
             String experiment = request.queryParams("exp");
             int region = Integer.parseInt(request.queryParams("reg"));
 
-            final String path = dataHomeDir+"/"+user+"/"+experiment+"/stitched/"+"reg"+StringFormatter.format("%03d",region).getValue();
+            final String path = dataHomeDir+"/"+user+"/"+experiment+"/stitched/"+"reg"+String.format("%03d",region);
 
             List<String> exp = Arrays.asList(new File(path).listFiles(f->f.getName().endsWith(".tif"))).stream().map(f->f.getAbsolutePath().substring(dataHomeDir.length()).replaceAll("\\\\","/")).collect(Collectors.toList());
 
@@ -380,14 +383,12 @@ public class RscCodexController {
             int channel = Integer.parseInt(request.queryParams("ch"));
             int z = Integer.parseInt(request.queryParams("z"));
 
-            String folderName = "reg"+StringFormatter.format("%03d",region).getValue()+"_X"+StringFormatter.format("%02d",tileX).getValue()+"_Y"+StringFormatter.format("%02d",tileY).getValue();
+            String folderName = "reg"+String.format("%03d",region)+"_X"+String.format("%02d",tileX)+"_Y"+String.format("%02d",tileY);
 
-            String path = dataHomeDir+"/"+user+"/"+experiment+"/"+folderName+"/"+folderName+"_z"+StringFormatter.format("%03d",z).getValue()+"_c"+StringFormatter.format("%03d",channel).getValue()+".tif";
+            String path = dataHomeDir+"/"+user+"/"+experiment+"/"+folderName+"/"+folderName+"_z"+String.format("%03d",z)+"_c"+String.format("%03d",channel)+".tif";
 
             System.out.println(path);
             return ImageIO.write((RenderedImage)IJ.openImage(path).getProcessor().createImage(), "PNG",response.raw().getOutputStream());
         });
-
     }
-
 }

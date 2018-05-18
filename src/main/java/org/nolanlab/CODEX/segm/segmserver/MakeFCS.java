@@ -38,11 +38,11 @@ public class MakeFCS {
 
         ArrayList<File> concatFiles = new ArrayList<>();
 
-        for (File f : compDir.listFiles(f -> f.getName().startsWith("reg") && (!f.getName().contains("_X")) && f.getName().contains("_Expression") && f.getName().endsWith(".txt"))) {
+        for (File f : compDir.listFiles(f -> f.getName().startsWith("reg") && (!f.getName().contains("_X")) && (f.getName().toLowerCase().contains("compensated"))  && f.getName().endsWith(".txt"))) {
             concatFiles.add(f);
         }
 
-        for (File f : uncompDir.listFiles(f -> f.getName().startsWith("reg") && (!f.getName().contains("_X")) && f.getName().contains("_Expression") && f.getName().endsWith(".txt"))) {
+        for (File f : uncompDir.listFiles(f -> f.getName().startsWith("reg") && (!f.getName().contains("_X")) && (f.getName().toLowerCase().contains("compensated"))  && f.getName().endsWith(".txt"))) {
             concatFiles.add(f);
         }
 
@@ -79,7 +79,7 @@ public class MakeFCS {
 
         int offset = size_idx;
 
-        String outPath = f.getAbsolutePath().replaceAll("\\.txt", "_normalized_FCSsrc.csv");
+        String outPath = f.getAbsolutePath().replaceAll("\\.txt", ".csv");
         File out = new File(outPath);
         CSVWriter outWr = new CSVWriter(new FileWriter(out), ',');
 

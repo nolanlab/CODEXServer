@@ -2,6 +2,7 @@ package org.nolanlab.CODEX.viewer.viewerclient.gui;
 
 import ij.WindowManager;
 import ij.gui.ImageLayout;
+import ij.gui.ScrollbarWithLabel;
 import ij.gui.StackWindow;
 import ij.gui.TextRoi;
 import org.nolanlab.CODEX.viewer.viewerclient.i5d.MultiCompositeImage;
@@ -50,6 +51,7 @@ public class MultichannelViewerWindow extends StackWindow  implements KeyListene
            ImageLayout imageLayout = new ImageLayout(ic);
 
 
+
             if1.setLayout(imageLayout);
             imageLayout.ignoreNonImageWidths(true);
             updateImageLayout(imageLayout,if1);
@@ -93,6 +95,9 @@ public class MultichannelViewerWindow extends StackWindow  implements KeyListene
                 }
             });
 
+            for (ScrollbarWithLabel sc : scrollbars) {
+                if1.add(sc);
+            }
 
            dp.add(if1);
             if1.setVisible(true);
