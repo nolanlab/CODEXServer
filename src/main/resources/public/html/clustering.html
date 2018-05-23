@@ -174,7 +174,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="rescaleSeparately">Rescale</label>
+                                <label for="rescaleSeparately">Rescale Separately</label>
                                 <select name="rescaleSeparately" id="rescaleSeparately" class="form-control input" placeholder="Choose Rescale separately" required>
                                     <option value="true">True</option>
                                     <option value="false">False</option>
@@ -185,11 +185,11 @@
                                 <button type="button" id="startClustering" class="btn btn-primary btn-lg center-block" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Running clustering">Start Clustering</button>
                             </div>
 
-                            <div class="progress">
-                                <div id = "pro" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                                    <font color="black"> 0% clustered </font>
-                                </div>
-                            </div>
+                            <!--<div class="progress">-->
+                                <!--<div id = "pro" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">-->
+                                    <!--<font color="black"> 0% clustered </font>-->
+                                <!--</div>-->
+                            <!--</div>-->
                         <!--</form>-->
 
                         <!--Modal to get the name of the clustering-->
@@ -270,7 +270,7 @@
 
 <script type="text/javascript">
     $('#startClustering').click(function() {
-        if($("#user").val() == -1 || $("#exp").val() == -1 || $('#tstamp').val() == -1) {
+        if($("#user").val() == -1 || $("#exp").val() == -1 || $('#tstamp').val() == -1 || $('#clustcols').val() == -1) {
             jQuery(function ($) {
                 $('#inpCheckmodal').modal('show');
             });
@@ -288,20 +288,17 @@
         jQuery(function ($) {
             $('#clusteringModal').modal('toggle');
         });
-        RunClustering($('#user').val(), $('#exp').val(), radiusParam, maxCutoffParam, minCutoffParam, relativeCutoffParam, nucStainChannelParam, nucStainCycleParam, membStainChannelParam, membStainCycleParam, $('#segmName').val());
+        RunClustering($('#user').val(), $('#exp').val(), $('#tstamp').val(), $('#fcs').val(), $('#gate').val(), $('#clustcols').val().toString(), $('#limitevents').val(), $('#transformation').val(), $('#scaling').val(),
+            $('#noise').val(), $('#rescale').val(), $('#quantile').val(), $('#rescaleSeparately').val(), $('#clusteringName').val());
     });
 
-    function RunClustering(user, exp, radius, maxCutOff, minCutOff, relativeCutOff, nucStainChannel, nucStainCycle, membStainChannel, membStainCycle, segmName) {
-        if(user != -1 && exp != -1 && radius && maxCutOff && minCutOff && relativeCutOff && nucStainChannel && nucStainCycle && membStainChannel && membStainCycle && segmName.trim().length != 0) {
-            showProgress();
+    function RunClustering(user, exp, tstamp, fcs, parentGate, clustCols, limitEvents, transformation, scalingFactor, noiseThreshold, rescale, quantile, rescaleSeparately, clusteringName) {
+        if(user != -1 && exp != -1 && tstamp && fcs && parentGate && clustCols && limitEvents && transformation && scalingFactor && noiseThreshold && rescale && quantile && rescaleSeparately && clusteringName.trim().length != 0) {
             $('#startClustering').button('loading');
-            setTimeout(function() {
-                $('#startClustering').button('reset');
-            }, 20000);
             $.ajax({
                 type: "GET",
-                url: "/runSegm?user="+user+"&exp="+exp+"&radius="+radius+"&maxCutOff="+maxCutOff+"&minCutOff="+minCutOff+"&relativeCutOff="+relativeCutOff+"&nucStainChannel="+nucStainChannel+"&nucStainCycle="+nucStainCycle
-                +"&membStainChannel="+membStainChannel+"&membStainCycle="+membStainCycle+"&segmName="+segmName,
+                url: "/runClustering?user="+user+"&exp="+exp+"&tstamp="+tstamp+"&FCS="+fcs+"&parentGate="+parentGate+"&clustCols="+clustCols+"&limitEvents="+limitEvents+"&transformation="+transformation
+                +"&scalingFactor="+scalingFactor+"&noiseThreshold="+noiseThreshold+"&rescale="+rescale+"&quantile="+quantile+"&rescaleSeparately="+rescaleSeparately+"&clusteringName="+clusteringName,
                 contentType: "application/json",
                 dataType: "json",
                 success: function(msg) {
@@ -309,17 +306,19 @@
                         jQuery(function ($) {
                             $('#resultModal').modal('show');
                         });
-                        $('#segmResults').html(msg);
+                        $('#clusteringResults').html(msg);
                         var gateLink = '<br />' + "Click " + '<a href="/html/gate.html">' + '<u>' + "here" + '</u>' + '</a>' + " to proceed with gating.";
-                        $('#segmResults').append(gateLink);
+                        $('#clusteringResults').append(gateLink);
+                        $('#startClustering').button('reset');
                     }
                     else {
                         jQuery(function ($) {
                             $('#resultModal').modal('show');
                         });
-                        $('#segmResults').html("Error caused by: " + msg);
+                        $('#clusteringResults').html("Error caused by: " + msg);
                         var errorStatus = '<br />' + "Oops! Something went wrong. Try running segmentation again or contact us! " + '<br />';
-                        $('#segmResults').append(errorStatus);
+                        $('#clusteringResults').append(errorStatus);
+                        $('#startClustering').button('reset');
                     }
 
                 },
@@ -327,9 +326,10 @@
                     jQuery(function ($) {
                         $('#resultModal').modal('show');
                     });
-                    $('#segmResults').html("Error caused by: " + msg);
-                    var errorStatus = '<br />' + "Oops! Something went wrong. Try running segmentation again or contact us! " + '<br />';
-                    $('#segmResults').append(errorStatus);
+                    $('#clusteringResults').html("Error caused by: " + msg);
+                    var errorStatus = '<br />' + "Oops! Something went wrong. Try running clustering again or contact us! " + '<br />';
+                    $('#clusteringResults').append(errorStatus);
+                    $('#startClustering').button('reset');
                 }
             });
         }
@@ -337,9 +337,9 @@
             jQuery(function ($) {
                 $('#resultModal').modal('show');
             });
-            $('#segmResults').html("Some field is missing.");
-            var errorStatus = '<br />' + "Please check the segmentation parameters again!" + '<br />';
-            $('#segmResults').append(errorStatus);
+            $('#clusteringResults').html("Some field is missing.");
+            var errorStatus = '<br />' + "Please check the clustering parameters again!" + '<br />';
+            $('#clusteringResults').append(errorStatus);
         }
     }
 </script>
@@ -352,20 +352,20 @@
     });
 </script>
 
-<script type="text/javascript">
-    function showProgress() {
-        setInterval(function(){
-            jQuery.ajax({
-                type: "GET",
-                url: "/getProgress",
-                success: function(result) {
-                    $('#pro').css("width", result + '%');
-                    $('#pro').html(result + "% segmented");
-                },
-            });
-        }, 5000);
-    }
-</script>
+<!--<script type="text/javascript">-->
+    <!--function showProgress() {-->
+        <!--setInterval(function(){-->
+            <!--jQuery.ajax({-->
+                <!--type: "GET",-->
+                <!--url: "/getProgress",-->
+                <!--success: function(result) {-->
+                    <!--$('#pro').css("width", result + '%');-->
+                    <!--$('#pro').html(result + "% segmented");-->
+                <!--},-->
+            <!--});-->
+        <!--}, 5000);-->
+    <!--}-->
+<!--</script>-->
 
 <script type="text/javascript" language="javascript">
     var userParam;
@@ -485,7 +485,8 @@
                     $('#clustcols').get(0).options[0] = new Option("Choose clustering columns", "-1");
                     $.each(msg, function(i,obj)
                     {
-                        var div_data="<option value="+obj+">"+obj+"</option>";
+                        var index = i+1;
+                        var div_data="<option value="+index+">"+obj+"</option>";
                         $(div_data).appendTo('#clustcols');
                     });
 

@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 import org.nolanlab.CODEX.segm.segmclient.SegConfigParam;
-import org.nolanlab.CODEX.uploader.uplclient.Experiment;
 
 import java.io.*;
 import java.lang.reflect.Modifier;

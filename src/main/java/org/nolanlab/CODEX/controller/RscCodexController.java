@@ -2,7 +2,9 @@ package org.nolanlab.CODEX.controller;
 
 import com.google.gson.Gson;
 import ij.IJ;
+import org.nolanlab.CODEX.clustering.clsclient.ClusteringConfigParam;
 import org.nolanlab.CODEX.clustering.clsserver.ClusterConfig;
+import org.nolanlab.CODEX.clustering.clsserver.RunClustering;
 import org.nolanlab.CODEX.gating.gatingserver.*;
 import org.nolanlab.CODEX.segm.segmclient.SegConfigParam;
 import org.nolanlab.CODEX.segm.segmserver.ConcatenateResults;
@@ -30,6 +32,7 @@ public class RscCodexController {
 
     public static String dataHomeDir = null;
     private static RunSegm rs = new RunSegm();
+    private static RunClustering rc = new RunClustering();
     public static List<String> XYnames = new ArrayList<>();
 
     public static void initServer(String dataHomeDir){
@@ -359,7 +362,76 @@ public class RscCodexController {
             return clusterConfig.listCombinedNames();
         }, gson::toJson);
 
-        
+        get("runClustering", "application/json", (request, response) -> {
+            String user = request.queryParams("user");
+            String exp = request.queryParams("exp");
+            String tstamp = request.queryParams("tstamp");
+            String fcs = request.queryParams("FCS");
+            String parentGate = request.queryParams("parentGate");
+            String clustCols = request.queryParams("clustCols");
+            String limitEvents = request.queryParams("limitEvents");
+            String transformation = request.queryParams("transformation");
+            String scalingFactor = request.queryParams("scalingFactor");
+            String noiseThreshold = request.queryParams("noiseThreshold");
+            String rescale = request.queryParams("rescale");
+            String quantile = request.queryParams("quantile");
+            String rescaleSeparately = request.queryParams("rescaleSeparately");
+            String clusteringName = request.queryParams("clusteringName");
+
+
+            ClusteringConfigParam clusteringConfigParam = new ClusteringConfigParam();
+
+            String serverConfig = System.getProperty("user.dir");
+            File clusteringDir = new File(serverConfig + File.separator + "data" + File.separator + user + File.separator + exp
+                    + File.separator + "processed" + File.separator + "segm" + File.separator + tstamp + File.separator
+                    + "FCS" + File.separator + fcs + File.separator + clusteringName);
+
+            if(!clusteringDir.exists()) {
+                clusteringDir.mkdir();
+            }
+
+            clusteringConfigParam.setClusteringDir(clusteringDir);
+            clusteringConfigParam.setClusteringName(clusteringName);
+            clusteringConfigParam.setGateName(parentGate);
+            clusteringConfigParam.setClustCols(clustCols);
+            clusteringConfigParam.setLimitEvents(Integer.parseInt(limitEvents));
+            clusteringConfigParam.setTransformation(transformation);
+            clusteringConfigParam.setScalingFactor(Integer.parseInt(scalingFactor));
+            clusteringConfigParam.setNoiseThreshold(Double.parseDouble(noiseThreshold));
+            clusteringConfigParam.setRescale(rescale);
+            clusteringConfigParam.setQuantile(Double.parseDouble(quantile));
+            clusteringConfigParam.setRescaleSeparately(Boolean.parseBoolean(rescaleSeparately));
+
+            logger.print("Starting Clustering...");
+
+            try {
+                rc.runClustering(clusteringConfigParam);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                return e.fillInStackTrace().toString();
+            }
+            logger.print("Clustering done");
+
+            File checkOut = new File(clusteringConfigParam.getClusteringDir() + File.separator + "out");
+
+            String res;
+            if(!checkOut.exists() || !checkOut.isDirectory()) {
+                res = "Out is either not a directory or was not created!";
+            }
+            else {
+                File[] fcsFile = checkOut.listFiles(f -> f.getName().toLowerCase().endsWith(".fcs"));
+                if(fcsFile.length > 0) {
+                    res = "Clustering Ran Successfully! The out folder with the FCS was created.";
+                }
+                else {
+                    res = "Fcs file was not created for the gate specified!";
+                }
+            }
+            return res;
+        }, gson::toJson);
+
+
 
         //Viewer
         get("/getStitchedImageList", "application/octet-stream", (request, response) -> {
